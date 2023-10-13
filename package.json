@@ -1,0 +1,20 @@
+{
+  "name": "cs545-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "author": "Trivia Website",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongo": "^0.1.0",
+    "mongodb": "^6.1.0",
+    "path": "^0.12.7"
+  }
+}
