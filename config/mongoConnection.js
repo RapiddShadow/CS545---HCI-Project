@@ -1,18 +1,20 @@
-import {MongoClient} from 'mongodb';
-import {mongoConfig} from "./settings.js"
+const MongoClient = require('mongodb').MongoClient;
+const dotenv = require("dotenv");
+
+dotenv.config();
 let _connection = undefined;
 let _db = undefined;
 
-const dbConnection = async () => {
-  if (!_connection) {
-    _connection = await MongoClient.connect(mongoConfig.serverUrl);
-    _db = _connection.db(mongoConfig.database);
+module.exports = {
+  dbConnection: async () => {
+    if (!_connection) {
+      _connection = await MongoClient.connect(process.env.DATA_URL);
+      _db = await _connection.db(process.env.DATABASE_NAME);
+    }
+
+    return _db;
+  },
+  closeConnection: () => {
+    _connection.close();
   }
-
-  return _db;
 };
-const closeConnection = async () => {
-  await _connection.close();
-};
-
-export {dbConnection, closeConnection};

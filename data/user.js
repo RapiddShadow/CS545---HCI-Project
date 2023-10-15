@@ -1,5 +1,6 @@
-import { users } from '../config/mongoCollections.js';
-import {ObjectId} from 'mongodb';
+const mongoCollections = require('../config/mongoCollections');
+const users = mongoCollections.users;
+const {ObjectId} = require('mongodb');
 
 let dataFunctions = {
     async addUser(first, last){
@@ -11,11 +12,17 @@ let dataFunctions = {
         const newInsertInformation = await userCollection.insertOne(newUser);
     if (!newInsertInformation.insertedId) throw 'Insert failed!';
     },
+
     async getAllUsers() {
+
+        console.log(users)
+        console.log("heewwwwwww")
         const userCollection = await users();
+        console.log(userCollection);
         const userList = await userCollection.find({}).toArray();
+        console.log(userList)
         return userList;
       }
 }
 
-export default dataFunctions
+module.exports =  dataFunctions

@@ -1,10 +1,11 @@
-import {Router} from 'express';
-const router = Router();
-import {userDataFunctions} from "../data/index.js"
+const express = require('express');
+const router = express.Router();
+const userDataFunctions = require('../data/user');
 
 router
-  .route('/')
+  .route('/user')
   .get(async (req, res) => {
+    console.log("Heyyyyyy")
     try {
       const users = await userDataFunctions.getAllUsers()
       res.json(users)
@@ -15,4 +16,4 @@ router
   })
 
 
-export default router
+  module.exports = router;

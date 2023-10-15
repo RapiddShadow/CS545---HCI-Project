@@ -1,12 +1,7 @@
-import express from 'express';
-const app = express()
-import path from 'path';
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
-const staticmiddleware = express.static(path.join(__dirname, 'public'));
-import configRoutes from "./routes/index.js"
+const express = require("express");
+const app = express();
+const configRoutes = require("./routes");
 
-
-app.use("/public", staticmiddleware);
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
@@ -21,5 +16,5 @@ configRoutes(app)
 
 
 app.listen(3000, () =>{
-    console.log("routes runnning on http://localhost:3000")
+    console.log("routes running on http://localhost:3000")
 })
