@@ -6,7 +6,12 @@ let dataFunctions = {
     async addUser(first, last){
         let newUser = {
             firstName: first,
-            lastName: last
+            lastName: last,
+            age: age,
+            email: email,
+            areaOfInterest : areaOfInterest,
+            score : score,
+            isAdmin : isAdmin
           };
         const userCollection = await users()
         const newInsertInformation = await userCollection.insertOne(newUser);
@@ -15,12 +20,8 @@ let dataFunctions = {
 
     async getAllUsers() {
 
-        console.log(users)
-        console.log("heewwwwwww")
         const userCollection = await users();
-        console.log(userCollection);
         const userList = await userCollection.find({}).toArray();
-        console.log(userList)
         return userList;
       }
 }

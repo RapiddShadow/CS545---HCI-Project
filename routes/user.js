@@ -5,7 +5,6 @@ const userDataFunctions = require('../data/user');
 router
   .route('/user')
   .get(async (req, res) => {
-    console.log("Heyyyyyy")
     try {
       const users = await userDataFunctions.getAllUsers()
       res.json(users)
