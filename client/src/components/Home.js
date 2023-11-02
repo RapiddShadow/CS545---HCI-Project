@@ -19,9 +19,7 @@ function Home({ title }) {
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/QNA.jpg" />
                             <Link to="/signin">
-                              <Button className="round-button">
-                                <span>Login</span>
-                              </Button>
+                            <button className="round-button">Log In</button>
                             </Link>
                             <br></br>
                           </Card>
@@ -35,9 +33,7 @@ function Home({ title }) {
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/QNA.jpg" />
                             <Link to="/signup">
-                              <Button className="round-button">
-                                <span>Sign Up</span>
-                              </Button>
+                            <button className="round-button">Sign Up</button>
                             </Link>
                             <br></br>
                           </Card>
