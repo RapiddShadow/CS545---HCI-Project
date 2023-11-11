@@ -156,20 +156,17 @@ const SignIn = ({ title }) => {
             </div>
           </div>
 
-
-
           <div className="form-group">
             <label htmlFor="areaOfInterest" className='teamname'>Area of Interest</label>
             <div className="col-sm-6 offset-3 align-items-center ">
           <select class="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} >
               <option>select Area of Interest</option>
               <option value="pop">Pop Culture</option>
-              <option value="tech">Technology</option>
               <option value="geo">Geography</option>
               <option value="his">History</option>
               <option value="spo">Sports</option>
-              <option value="art">Art</option>
               <option value="sci">Science</option>
+              <option value="surprise">Surprise Me!</option>
               </select>
           </div>
           </div>
