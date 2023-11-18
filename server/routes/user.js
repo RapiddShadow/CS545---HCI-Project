@@ -66,4 +66,45 @@ const { ObjectId } = require("mongodb");
     
   });
 
+  router
+  .route("/userprofile")
+  .get(async(req,res) => {
+    let requestData = req.body;
+    try{
+      
+      const user = await userData.getUserProfile(requestData.email)
+      console.log("here")
+      return res.status(200).json(user)
+    }catch(e){
+      res.status(500).send("Internal Server Error")
+    }
+  })
+
+
+  router.route("/userprofile/edituser").post(async (req, res) => {
+    let requestData = req.body;
+    try{
+      if (!requestData.email, !requestData.firstName, !requestData.lastName) 
+        throw {statusCode: 400, message: "Please provide all fields!"};
+        const editUser = await userData.editUser(requestData.email, requestData.firstName, requestData.lastName)
+        if(editUser) return res.json("Edit user successful")
+    }catch(e){
+      res.status(400).send("Edit user failed")
+    }
+  });
+
+  router
+  .route("/userprofile/getscore")
+  .get(async(req,res) => {
+    let requestData = req.body;
+    try{
+      
+      const user = await userData.getUserProfile(requestData.email)
+      return res.status(200).json(user.score)
+    }catch(e){
+      res.status(500).send("Internal Server Error")
+    }
+  })
+
+
 module.exports = router;

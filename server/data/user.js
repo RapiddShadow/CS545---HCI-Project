@@ -103,10 +103,66 @@ const getUserByEmail = async (email) => {
   }
 };
 
+
+
+const editUser = async(email, firstName, lastName) => {
+      email = email.trim().toLowerCase();    
+      firstName =firstName.trim();
+      lastName = lastName.trim();
+      validName(firstName);
+      validName(lastName);
+      validEmail(email);
+      try{
+        
+        let toUpdateInfo = {
+          firstName : firstName,
+          lastName : lastName,
+        }
+
+        const userCollection = await users()
+        const updateUser = await userCollection.updateOne({email: email}, {$set: toUpdateInfo});
+        if(!updateUser.matchedCount && !updateUser.modifiedCount) {
+          console.log("failed here")
+          throw "Failed to update user details";}
+        return await getUserByEmail(email)
+
+      }catch(e){
+        throw e;
+      }
+
+      
+}
+
+  const getAllScores = async (email) => {
+    try{
+      email = email.trim().toLowerCase(); 
+    const userCollection = await users()
+    const user = await userCollection.findOne({email: email})
+    return user
+    }catch(e){
+      throw e
+    }
+  } 
+
+
+  const getUserProfile = async (email) => {
+    try{
+      email = email.trim().toLowerCase(); 
+    const userCollection = await users()
+    const user = await userCollection.findOne({email: email})
+    return user
+    }catch(e){
+      throw e
+    }
+  }
+
 module.exports = {
 
   createUser,
   checkUser,
-  getUserByEmail
+  getUserByEmail,
+  editUser,
+  getAllScores,
+  getUserProfile
 
 };
