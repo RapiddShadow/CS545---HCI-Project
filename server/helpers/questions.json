@@ -1,0 +1,562 @@
+[
+    {
+        "category": "Pop Culture",
+        "question": "What animated film features a young lion named Simba?",
+        "options": ["Aladdin", "The Lion King", "Frozen", "Finding Nemo"],
+        "correct_answer": "The Lion King",
+        "difficulty": 1
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Who played the iconic character Jack Dawson in the movie 'Titanic'?",
+        "options": ["Brad Pitt", "Tom Cruise", "Leonardo DiCaprio", "Johnny Depp"],
+        "correct_answer": "Leonardo DiCaprio",
+        "difficulty": 2
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Which famous band is known for their album 'Abbey Road'?",
+        "options": ["Pink Floyd", "Led Zeppelin", "The Rolling Stones", "The Beatles"],
+        "correct_answer": "The Beatles",
+        "difficulty": 3
+    },
+    {
+        "category": "Pop Culture",
+        "question": "In which TV series did characters like Walter White and Jesse Pinkman become infamous?",
+        "options": ["Breaking Bad", "The Sopranos", "Game of Thrones", "Friends"],
+        "correct_answer": "Breaking Bad",
+        "difficulty": 4
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Who is the author of the 'Harry Potter' series?",
+        "options": ["J.R.R. Tolkien", "George R.R. Martin", "J.K. Rowling", "Suzanne Collins"],
+        "correct_answer": "J.K. Rowling",
+        "difficulty": 5
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Which film won the Academy Award for Best Picture in 1994?",
+        "options": ["Pulp Fiction", "Schindler's List", "Forrest Gump", "Goodfellas"],
+        "correct_answer": "Forrest Gump",
+        "difficulty": 6
+    },
+    {
+        "category": "Pop Culture",
+        "question": "What character is portrayed by Robert Downey Jr. in the Marvel Cinematic Universe?",
+        "options": ["Thor", "Iron Man", "Captain America", "Black Widow"],
+        "correct_answer": "Iron Man",
+        "difficulty": 7
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Who is the lead singer of the rock band U2?",
+        "options": ["Bono", "Sting", "Mick Jagger", "Bruce Springsteen"],
+        "correct_answer": "Bono",
+        "difficulty": 8
+    },
+    {
+        "category": "Pop Culture",
+        "question": "In the film 'The Matrix,' what is the real name of the character played by Keanu Reeves?",
+        "options": ["Neo", "Morpheus", "Trinity", "Cypher"],
+        "correct_answer": "Neo",
+        "difficulty": 9
+    },
+    {
+        "category": "Pop Culture",
+        "question": "Which famous pop star's real name is Stefani Joanne Angelina Germanotta?",
+        "options": ["Madonna", "Katy Perry", "Lady Gaga", "Adele"],
+        "correct_answer": "Lady Gaga",
+        "difficulty": 10
+    },
+    {
+        "category": "Geography",
+        "question": "Which continent is home to the Sahara Desert?",
+        "options": ["Asia", "Africa", "South America", "Europe"],
+        "correct_answer": "Africa",
+        "difficulty": 1
+    },
+    {
+        "category": "Geography",
+        "question": "What is the capital city of France?",
+        "options": ["Berlin", "Madrid", "Paris", "Rome"],
+        "correct_answer": "Paris",
+        "difficulty": 2
+    },
+    {
+        "category": "Geography",
+        "question": "Which river is the longest in the world?",
+        "options": ["Paris", "Amazon", "Mississippi", "Yangtze"],
+        "correct_answer": "Amazon",
+        "difficulty": 3
+    },
+    {
+        "category": "Geography",
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "options": ["China", "Japan", "India", "South Korea"],
+        "correct_answer": "Japan",
+        "difficulty": 4
+    },
+    {
+        "category": "Geography",
+        "question": "In which country would you find the ancient city of Machu Picchu?",
+        "options": ["Peru", "Mexico", "Egypt", "Greece"],
+        "correct_answer": "Peru",
+        "difficulty": 5
+    },
+    {
+        "category": "Geography",
+        "question": "What is the highest mountain peak in North America?",
+        "options": ["Kilimanjaro", "Everest", "Denali", "Fuji"],
+        "correct_answer": "Denali",
+        "difficulty": 6
+    },
+    {
+        "category": "Geography",
+        "question": "Which African country is the most populous?",
+        "options": ["Nigeria", "Egypt", "South Africa", "Ethiopia"],
+        "correct_answer": "Nigeria",
+        "difficulty": 7
+    },
+    {
+        "category": "Geography",
+        "question": "What is the largest ocean on Earth?",
+        "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+        "correct_answer": "Pacific",
+        "difficulty": 8
+    },
+    {
+        "category": "Geography",
+        "question": "Which two countries share the longest international border in the world?",
+        "options": ["Russia and China", "Canada and the United States", "India and Pakistan", "Brazil and Argentina"],
+        "correct_answer": "Canada and the United States",
+        "difficulty": 9
+    },
+    {
+        "category": "Geography",
+        "question": "Which city stands at the crossroads of Europe and Asia and is known as the Eurasian city?",
+        "options": ["Istanbul", "Moscow", "Dubai", "Tehran"],
+        "correct_answer": "Istanbul",
+        "difficulty": 10
+    },   
+    {
+        "category": "Sports",
+        "question": "In which sport do players try to score goals by hitting a puck into the opposing team's net?",
+        "options": ["Basketball", "Soccer", "Ice Hockey", "Tennis"],
+        "correct_answer": "Ice Hockey",
+        "difficulty": 1
+    },
+    {
+        "category": "Sports",
+        "question": "How many players are there on a standard soccer team, including the goalkeeper?",
+        "options": ["9", "11", "7", "6"],
+        "correct_answer": "11",
+        "difficulty": 2
+    },
+    {
+        "category": "Sports",
+        "question": "What is the highest possible score in a single frame of bowling?",
+        "options": ["100", "200", "300", "400"],
+        "correct_answer": "300",
+        "difficulty": 3
+    },
+    {
+        "category": "Sports",
+        "question": "Which country won the FIFA World Cup in 2018?",
+        "options": ["Brazil", "Germany", "France", "Italy"],
+        "correct_answer": "France",
+        "difficulty": 4
+    },
+    {
+        "category": "Sports",
+        "question": "Which tennis player has won the most Grand Slam singles titles in history?",
+        "options": ["Serena Williams", "Rafael Nadal", "Roger Federer", "Novak Djokovic"],
+        "correct_answer": "Novak Djokovic",
+        "difficulty": 5
+    },
+    {
+        "category": "Sports",
+        "question": "What is the object of the game in curling?",
+        "options": ["To score goals", "To knock down all the pins", "To slide stones on ice towards a target", "To shoot a puck into the opponent's net"],
+        "correct_answer": "To slide stones on ice towards a target",
+        "difficulty": 6
+    },
+    {
+        "category": "Sports",
+        "question": "Which American sprinter famously won four gold medals at the 1936 Berlin Olympics?",
+        "options": ["Jesse Owens", "Usain Bolt", "Carl Lewis", "Michael Johnson"],
+        "correct_answer": "Jesse Owens",
+        "difficulty": 7
+    },
+    {
+        "category": "Sports",
+        "question": "Who holds the record for the most career home runs in Major League Baseball?",
+        "options": ["Babe Ruth", "Barry Bonds", "Hank Aaron", "Willie Mays"],
+        "correct_answer": "Barry Bonds",
+        "difficulty": 8
+    },
+    {
+        "category": "Sports",
+        "question": "In which sport can you perform a 'corkscrew' or '720' as part of a routine?",
+        "options": ["Snowboarding", "Figure skating", "Gymnastics", "Diving"],
+        "correct_answer": "Snowboarding",
+        "difficulty": 9
+    },
+    {
+        "category": "Sports",
+        "question": "Which country hosted the 2016 Summer Olympics?",
+        "options": ["Australia", "Brazil", "Canada", "South Africa"],
+        "correct_answer": "Brazil",
+        "difficulty": 10
+    },
+    {
+        "category": "History",
+        "question": "Who is credited with discovering America in 1492?",
+        "options": ["Christopher Columbus", "Marco Polo", "Ferdinand Magellan", "Vasco da Gama"],
+        "correct_answer": "Christopher Columbus",
+        "difficulty": 1
+    },
+    {
+        "category": "History",
+        "question": "In which war did the Battle of Gettysburg take place?",
+        "options": ["American Revolutionary War", "World War I", "American Civil War", "War of 1812"],
+        "correct_answer": "American Civil War",
+        "difficulty": 2
+    },
+    {
+        "category": "History",
+        "question": "Who was the first President of the United States?",
+        "options": ["Benjamin Franklin", "George Washington", "Thomas Jefferson", "John Adams"],
+        "correct_answer": "George Washington",
+        "difficulty": 3
+    },
+    {
+        "category": "History",
+        "question": "Which famous Egyptian queen was known for her relationships with Julius Caesar and Mark Antony?",
+        "options": ["Cleopatra", "Nefertiti", "Hatshepsut", "Ankhesenamun"],
+        "correct_answer": "Cleopatra",
+        "difficulty": 4
+    },
+    {
+        "category": "History",
+        "question": "The Magna Carta, signed in 1215, is often considered a cornerstone of which political concept?",
+        "options": ["Democracy", "Communism", "Fascism", "Monarchy"],
+        "correct_answer": "Democracy",
+        "difficulty": 5
+    },
+    {
+        "category": "History",
+        "question": "Who wrote the Communist Manifesto with Karl Marx in 1848?",
+        "options": ["Friedrich Engels", "Vladimir Lenin", "Leon Trotsky", "Joseph Stalin"],
+        "correct_answer": "Friedrich Engels",
+        "difficulty": 6
+    },
+    {
+        "category": "History",
+        "question": "Which ancient wonder of the world was a colossal statue of the Greek sun-god Helios?",
+        "options": ["Hanging Gardens of Babylon", "Colossus of Rhodes", "Great Pyramid of Giza", "Temple of Artemis at Ephesus"],
+        "correct_answer": "Colossus of Rhodes",
+        "difficulty": 7
+    },
+    {
+        "category": "History",
+        "question": "Who was the longest-reigning monarch in British history?",
+        "options": ["Queen Elizabeth II", "Queen Victoria", "Queen Mary", "King Henry VIII"],
+        "correct_answer": "Queen Elizabeth II",
+        "difficulty": 8
+    },
+    {
+        "category": "History",
+        "question": "What year did the Berlin Wall fall, leading to the reunification of East and West Germany?",
+        "options": ["1989", "1991", "1993", "1987"],
+        "correct_answer": "1989",
+        "difficulty": 9
+    },
+    {
+        "category": "History",
+        "question": "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+        "options": ["Vladimir Putin", "Mikhail Gorbachev", "Joseph Stalin", "Nikita Khrushchev"],
+        "correct_answer": "Nikita Khrushchev",
+        "difficulty": 10
+    },
+    {
+        "category": "Mixed",
+        "question": "What traditional Japanese performance art combines singing, acting, and dancing?",
+        "options": ["Kabuki", "Samba", "Ballet", "Flamenco"],
+        "correct_answer": "Kabuki",
+        "difficulty": 1
+    },
+    {
+        "category": "Mixed",
+        "question": "Which country is famous for its colorful and intricate pottery known as 'Delftware'?",
+        "options": ["Italy", "Spain", "Netherlands", "France"],
+        "correct_answer": "Netherlands",
+        "difficulty": 2
+    },
+    {
+        "category": "Mixed",
+        "question": "What Italian dish consists of thinly sliced raw meat or fish, typically served as an appetizer?",
+        "options": ["Sushi", "Bruschetta", "Carpaccio", "Paella"],
+        "correct_answer": "Carpaccio",
+        "difficulty": 3
+    },
+    {
+        "category": "Mixed",
+        "question": "In which country did the Renaissance, a period of great cultural and artistic achievement, originate?",
+        "options": ["France", "Greece", "Italy", "Spain"],
+        "correct_answer": "Italy",
+        "difficulty": 4
+    },
+    {
+        "category": "Mixed",
+        "question": "Which South American dance style originated in the working-class neighborhoods of Buenos Aires?",
+        "options": ["Salsa", "Tango", "Rumba", "Flamenco"],
+        "correct_answer": "Tango",
+        "difficulty": 5
+    },
+    {
+        "category": "Mixed",
+        "question": "Who is the famous playwright known for works like 'Romeo and Juliet' and 'Hamlet'?",
+        "options": ["William Wordsworth", "Charles Dickens", "William Shakespeare", "George Orwell"],
+        "correct_answer": "William Shakespeare",
+        "difficulty": 6
+    },
+    {
+        "category": "Mixed",
+        "question": "What is the traditional percussion instrument of India, consisting of two hand-played drums?",
+        "options": ["Sitar", "Tabla", "Didgeridoo", "Bagpipes"],
+        "correct_answer": "Tabla",
+        "difficulty": 7
+    },
+    {
+        "category": "Mixed",
+        "question": "Who is the author of the epic Indian text, the 'Mahabharata'?",
+        "options": ["Rabindranath Tagore", "Kalidasa", "Vyasa", "Valmiki"],
+        "correct_answer": "Vyasa",
+        "difficulty": 8
+    },
+    {
+        "category": "Mixed",
+        "question": "What style of art, known for its use of geometric shapes and primary colors, was pioneered by Piet Mondrian?",
+        "options": ["Cubism", "Surrealism", "Abstract Art", "Impressionism"],
+        "correct_answer": "Abstract Art",
+        "difficulty": 9
+    },
+    {
+        "category": "Mixed",
+        "question": "Which country is famous for its traditional Maasai warrior dances and distinctive beaded jewelry?",
+        "options": ["Kenya", "Egypt", "Nigeria", "Morocco"],
+        "correct_answer": "Kenya",
+        "difficulty": 10
+    },
+    {
+        "category": "Art",
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+        "correct_answer": "Leonardo da Vinci",
+        "difficulty": 1
+    },
+    {
+        "category": "Art",
+        "question": "Which famous artist is known for his colorful, swirling paintings like 'Starry Night'?",
+        "options": ["Salvador Dalí", "Claude Monet", "Jackson Pollock", "Vincent van Gogh"],
+        "correct_answer": "Vincent van Gogh",
+        "difficulty": 2
+    },
+    {
+        "category": "Art",
+        "question": "What art movement is characterized by its use of everyday objects and imagery, such as soup cans?",
+        "options": ["Cubism", "Abstract Expressionism", "Surrealism", "Pop Art"],
+        "correct_answer": "Pop Art",
+        "difficulty": 3
+    },
+    {
+        "category": "Art",
+        "question": "Who sculpted the famous statue of David?",
+        "options": ["Leonardo da Vinci", "Donatello", "Michelangelo", "Raphael"],
+        "correct_answer": "Michelangelo",
+        "difficulty": 4
+    },
+    {
+        "category": "Art",
+        "question": "Which artist is known for her self-portraits, including one with a unibrow?",
+        "options": ["Frida Kahlo", "Georgia O'Keeffe", "Mary Cassatt", "Artemisia Gentileschi"],
+        "correct_answer": "Frida Kahlo",
+        "difficulty": 5
+    },
+    {
+        "category": "Art",
+        "question": "What artistic style is characterized by its use of distorted and exaggerated figures?",
+        "options": ["Impressionism", "Cubism", "Expressionism", "Realism"],
+        "correct_answer": "Expressionism",
+        "difficulty": 6
+    },
+    {
+        "category": "Art",
+        "question": "Who painted 'Guernica,' a powerful anti-war artwork depicting the horrors of the Spanish Civil War?",
+        "options": ["Pablo Picasso", "Henri Matisse", "Joan Miró", "Salvador Dalí"],
+        "correct_answer": "Pablo Picasso",
+        "difficulty": 7
+    },
+    {
+        "category": "Art",
+        "question": "What is the name of the famous Japanese printmaker known for his woodblock prints of landscapes and actors?",
+        "options": ["Hokusai", "Hiroshige", "Kuniyoshi", "Utamaro"],
+        "correct_answer": "Hokusai",
+        "difficulty": 8
+    },
+    {
+        "category": "Art",
+        "question": "Which art movement, known for its use of simple geometric shapes and primary colors, was founded by Theo van Doesburg and Piet Mondrian?",
+        "options": ["Surrealism", "Cubism", "De Stijl", "Fauvism"],
+        "correct_answer": "De Stijl",
+        "difficulty": 9
+    },
+    {
+        "category": "Art",
+        "question": "Who is the artist behind the 'Campbell's Soup Cans' series of paintings?",
+        "options": ["Andy Warhol", "Roy Lichtenstein", "Jasper Johns", "Robert Rauschenberg"],
+        "correct_answer": "Andy Warhol",
+        "difficulty": 10
+    },
+    {
+        "category": "Science",
+        "question": "What is the chemical symbol for the element gold?",
+        "options": ["Go", "Au", "Ag", "Ge"],
+        "correct_answer": "Au",
+        "difficulty": 1
+    },
+    {
+        "category": "Science",
+        "question": "What is the process by which plants use sunlight to convert carbon dioxide and water into glucose and oxygen?",
+        "options": ["Photosynthesis", "Respiration", "Fermentation", "Combustion"],
+        "correct_answer": "Photosynthesis",
+        "difficulty": 2
+    },
+    {
+        "category": "Science",
+        "question": "What is the closest star to Earth?",
+        "options": ["Mars", "Venus", "The Sun", "Jupiter"],
+        "correct_answer": "The Sun",
+        "difficulty": 3
+    },
+    {
+        "category": "Science",
+        "question": "Who is considered the father of modern physics and is known for the theory of relativity?",
+        "options": ["Isaac Newton", "Galileo Galilei", "Albert Einstein", "Niels Bohr"],
+        "correct_answer": "Albert Einstein",
+        "difficulty": 4
+    },
+    {
+        "category": "Science",
+        "question": "What is the smallest unit of matter?",
+        "options": ["Proton", "Atom", "Electron", "Neutron"],
+        "correct_answer": "Atom",
+        "difficulty": 5
+    },
+    {
+        "category": "Science",
+        "question": "Which gas makes up the majority of Earth's atmosphere?",
+        "options": ["Oxygen", "Carbon dioxide", "Nitrogen", "Hydrogen"],
+        "correct_answer": "Nitrogen",
+        "difficulty": 6
+    },
+    {
+        "category": "Science",
+        "question": "What is the process by which an organism evolves over generations through changes in its genetic material?",
+        "options": ["Evolution", "Natural selection", "Adaptation", "Mutation"],
+        "correct_answer": "Evolution",
+        "difficulty": 7
+    },
+    {
+        "category": "Science",
+        "question": "What is the study of the Earth's past, including the history of life on Earth, called?",
+        "options": ["Geology", "Paleontology", "Anthropology", "Archaeology"],
+        "correct_answer": "Geology",
+        "difficulty": 8
+    },
+    {
+        "category": "Science",
+        "question": "Which subatomic particles are found in the nucleus of an atom?",
+        "options": ["Electrons", "Protons and neutrons", "Neutrons and electrons", "Protons and electrons"],
+        "correct_answer": "Protons and neutrons",
+        "difficulty": 9
+    },
+    {
+        "category": "Science",
+        "question": "What is the branch of science that deals with the study of the behavior of matter and energy at the atomic and subatomic level?",
+        "options": ["Biology", "Chemistry", "Particle Physics", "Geology"],
+        "correct_answer": "Particle Physics",
+        "difficulty": 10
+    },
+    {
+        "category": "Technology",
+        "question": "What is the name of Apple's virtual assistant that responds to voice commands?",
+        "options": ["Alexa", "Siri", "Cortana", "Google Assistant"],
+        "correct_answer": "Siri",
+        "difficulty": 1
+    },
+    {
+        "category": "Technology",
+        "question": "Which company is known for its gaming console series, including the PlayStation?",
+        "options": ["Microsoft", "Nintendo", "Sony", "Sega"],
+        "correct_answer": "Sony",
+        "difficulty": 2
+    },
+    {
+        "category": "Technology",
+        "question": "What does 'www' stand for in a website's URL?",
+        "options": ["World Wide Web", "Web World Wide", "World Web Wide", "Wide World Web"],
+        "correct_answer": "World Wide Web",
+        "difficulty": 3
+    },
+    {
+        "category": "Technology",
+        "question": "Which programming language is often used for building machine learning models and is known for its simplicity and readability?",
+        "options": ["Java", "Ruby", "C++", "Python"],
+        "correct_answer": "Python",
+        "difficulty": 4
+    },
+    {
+        "category": "Technology",
+        "question": "What is the term for the process of copying files from a remote server to a local device, typically via the internet?",
+        "options": ["Upload", "Download", "Backup", "Install"],
+        "correct_answer": "Download",
+        "difficulty": 5
+    },
+    {
+        "category": "Technology",
+        "question": "Who co-founded Microsoft along with Bill Gates?",
+        "options": ["Steve Jobs", "Jeff Bezos", "Steve Wozniak", "Paul Allen"],
+        "correct_answer": "Paul Allen",
+        "difficulty": 6
+    },
+    {
+        "category": "Technology",
+        "question": "What is the programming language used for creating dynamic and interactive web pages?",
+        "options": ["JavaScript", "HTML", "CSS", "PHP"],
+        "correct_answer": "JavaScript",
+        "difficulty": 7
+    },
+    {
+        "category": "Technology",
+        "question": "What technology is used for wireless data transmission over short distances, often used for connecting devices like smartphones to headphones?",
+        "options": ["Wi-Fi", "Bluetooth", "NFC", "RFID"],
+        "correct_answer": "Bluetooth",
+        "difficulty": 8
+    },
+    {
+        "category": "Technology",
+        "question": "What is the term for the practice of modifying computer software or hardware to gain unauthorized access or control over a system?",
+        "options": ["Hacking", "Programming", "Debugging", "Encryption"],
+        "correct_answer": "Hacking",
+        "difficulty": 9
+    },
+    {
+        "category": "Technology",
+        "question": "Who is often called the 'father of the modern computer' for his work on the first programmable digital computer, the Z3?",
+        "options": ["Alan Turing", "John von Neumann", "Charles Babbage", "Konrad Zuse"],
+        "correct_answer": "Konrad Zuse",
+        "difficulty": 10
+    }       
+]
