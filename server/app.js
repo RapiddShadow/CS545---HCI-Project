@@ -15,6 +15,6 @@ app.use(express.urlencoded({extended: true}))
 configRoutes(app)
 
 
-app.listen(3000, () =>{
-    console.log("routes running on http://localhost:3000")
+app.listen(4000, () =>{
+    console.log("routes running on http://localhost:4000")
 })

@@ -1,6 +1,5 @@
-// import {dbConnection, closeConnection} from "./config/mongoConnection.js"
-// import users from "./data/user.js"
-
+// const { dbConnection, closeConnection } = require("./config/mongoConnection.js");
+// const quiz = require('./data/quiz.js');
 // const db = await dbConnection();
 // await db.dropDatabase();
 
@@ -13,3 +12,22 @@
 // console.log(userGet)
 // console.log('Done seeding database');
 // await closeConnection();
+// Assuming this code is within an async function or an IIFE (Immediately Invoked Function Expression)
+
+// const fetch = async () => {
+//     try {
+//       await quiz.addQuizQuestions();
+//     } catch (e) {
+//       console.log(e);
+//     } 
+//  };
+
+//  const main = async () => {
+//     const db = await dbConnection();
+//     // await db.dropDatabase();
+//     await fetch()
+//     console.log("Fetching done!")
+//     // await closeConnection()
+// }
+
+// main()
