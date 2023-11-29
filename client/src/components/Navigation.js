@@ -41,6 +41,9 @@ const Navigation = () => {
         <NavLink className='nav-links' to='/signup'>
           SignUp
         </NavLink>
+        <Link className='nav-links' to='/categories'>
+        Quiz
+      </Link>
       </nav>
     );
   }
@@ -61,6 +64,9 @@ const NavigationNonAuth = () => {
 
       <Link className='nav-links' to='/signup'>
         SignUp
+      </Link>
+      <Link className='nav-links' to='/categories'>
+        Quiz
       </Link>
     </nav>
   );
