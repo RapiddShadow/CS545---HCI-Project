@@ -3,7 +3,11 @@ import axios from 'axios';
 import '../App.css';
 
 
-const UserProfile = () => {
+const UserProfile = ( { title }) => {
+
+  React.useEffect(() => {
+    document.title = title; // Set the page title
+  }, [title]);
 
   return (
     <div>Hey</div>

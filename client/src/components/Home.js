@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import '../App.css';
 import { Link } from 'react-router-dom';
 
 function Home({ title }) {
 
-  React.useEffect(() => {
-    document.title = title;
+  console.log(title)
+  useEffect(() => {
+    document.title = title; // Set the page title
   }, [title]);
+
   return(
   <div className="row justify-content-center" id='home'  >
       <div className="col-md-10" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>

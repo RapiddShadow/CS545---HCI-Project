@@ -42,9 +42,9 @@ function App() {
 
             <div className='App-body'>
               <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/signin' element={<SignIn title="Login"/>} />
-                <Route path='/signup' element={<SignUp title="Sign Up"/>} />
+                <Route path='/' element={<Home title="Home" />} />
+                <Route path='/signin' element={<SignIn title = "Login"/>} />
+                <Route path='/signup' element={<SignUp title = "Sign Up"/>} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title="Categories"/>} />
                 <Route path='/user-profile' element= {<UserProfile/>} />
@@ -86,11 +86,11 @@ else{
 
             <div className='App-body'>
               <Routes>
-              <Route path='/' element={<Home />} />
-                <Route path='/signin' element={<SignIn title="Login"/>} />
-                <Route path='/signup' element={<SignUp title="Sign Up"/>} />
+              <Route path='/' element={<Home title = "Home" />} />
+                <Route path='/signin' element={<SignIn title = "Login"/>} />
+                <Route path='/signup' element={<SignUp title = "Sign Up"/>} />
                 <Route path='/signout' element={<SignOut />} />
-                <Route path='/categories' element={<QuizCategories />} />
+                <Route path='/categories' element={<QuizCategories title = "Categories"/>} />
                 <Route path='/user-profile' element={<AccessForbidden title="Access Forbidden" />} />
               </Routes>
             </div>

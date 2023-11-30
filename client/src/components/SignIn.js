@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const SignIn = () => {
+const SignIn = ({ title }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+
+  useEffect(() => {
+    document.title = title; // Set the page title
+  }, [title]);
 
   const navigate = useNavigate();
 
