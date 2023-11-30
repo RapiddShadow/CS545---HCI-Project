@@ -8,16 +8,12 @@ const { ObjectId } = require("mongodb");
 
   router.route("/register").post(async (req, res) => {
     let requestData = req.body;
-
-    console.log(requestData);
     try{
       // Empty field validations
       if (!requestData.firstName || !requestData.lastName || !requestData.age ||  !requestData.email || !requestData.password || !requestData.areaOfInterest) {
-        console.log("at 16 royte")
         throw {statusCode: 400, message: "Please provide all fields!"};
       }
     } catch(e) {
-        console.log("I am at 21")
         res.status(400).send(e.message);
     }
 
@@ -25,13 +21,10 @@ const { ObjectId } = require("mongodb");
         usersList = await userData.createUser(
           requestData.firstName, requestData.lastName, requestData.age, requestData.email, requestData.password, requestData.areaOfInterest, 0, false
         );
-
-        console.log(usersList);
         if(usersList)
           res.json(usersList);
         
       } catch (e) {
-        console.log("I am at 35")
         res.status(500).send(e.message);      
       }
 

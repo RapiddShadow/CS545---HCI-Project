@@ -32,8 +32,8 @@ function Home({ title }) {
                         <div className="d-block" style={{ position: 'relative' }}>
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/QNA.jpg" />
-                            <Link to="/signup">
-                            <button className="round-button">Sign Up</button>
+                            <Link to="/register">
+                            <button className="round-button">Register</button>
                             </Link>
                             <br></br>
                           </Card>

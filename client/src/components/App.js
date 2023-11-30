@@ -2,7 +2,7 @@ import React from 'react';
 import '../App.css';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import SignIn from './SignIn';
-import SignUp from './SignUp';
+import Register from './Register';
 import SignOut from './SignOut';
 import Home from './Home';
 import UserProfile from './UserProfile';
@@ -44,7 +44,7 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home title="Home" />} />
                 <Route path='/signin' element={<SignIn title = "Login"/>} />
-                <Route path='/signup' element={<SignUp title = "Sign Up"/>} />
+                <Route path='/register' element={<Register title = "Register"/>} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title="Categories"/>} />
                 <Route path='/user-profile' element= {<UserProfile/>} />
@@ -88,7 +88,7 @@ else{
               <Routes>
               <Route path='/' element={<Home title = "Home" />} />
                 <Route path='/signin' element={<SignIn title = "Login"/>} />
-                <Route path='/signup' element={<SignUp title = "Sign Up"/>} />
+                <Route path='/register' element={<Register title = "Register"/>} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title = "Categories"/>} />
                 <Route path='/user-profile' element={<AccessForbidden title="Access Forbidden" />} />

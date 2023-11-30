@@ -18,8 +18,6 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
       email = email.trim().toLowerCase();
       areaOfInterest = areaOfInterest.trim();
   try {
-
-    console.log("I am at 35 data")
     const hash = await bcrypt.hash(password, saltRounds);
     const userCollection = await users();
     let newUser = {
@@ -37,7 +35,6 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
       throw internalServerError("Could not add user");
 
     const existingUser = await getUserByEmail(email);
-    console.log("from 40" ,existingUser._id.toString());
       return existingUser._id.toString();
   } catch (err) {
     throw err;
@@ -62,7 +59,6 @@ const checkUser =  async (email, password ) => {
     const comparePasswords = await bcrypt.compare(password, existingUser.hashedPassword);   
     if (comparePasswords) {
       //return getUserById(users_data._id.toString());
-      console.log(existingUser._id.toString());
       return existingUser._id.toString();
     } else 
         throw badRequestError("Either the email or password is invalid");
