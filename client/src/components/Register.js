@@ -5,21 +5,33 @@ import axios from 'axios';
 
 
 const SignUp = ({ title }) => {
-
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     email: '',
     password: '',
     age: '',
-    areaOfInterest: 'select Area of Interest', // Set a default value for the select
+    areaOfInterest: 'select Area of Interest',
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title; // Set the page title
-  }, [title]);
-  
-  const navigate = useNavigate();
+
+    // Check if the user is already logged in
+    const sessionToken = sessionStorage.getItem('token');
+    if (sessionToken) {
+      Swal.fire({
+        icon: 'info',
+        title: 'Already Logged In',
+        text: 'You are already logged in!',
+      }).then(() => {
+        // Redirect to the desired page (e.g., '/categories')
+        navigate('/categories');
+      });
+    }
+  }, [title, navigate]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -27,8 +39,8 @@ const SignUp = ({ title }) => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-  
+    event.preventDefault();
+
     try {
       const response = await axios.post('http://localhost:4000/register', {
         firstName: formData.firstName,
@@ -38,28 +50,21 @@ const SignUp = ({ title }) => {
         age: formData.age,
         areaOfInterest: formData.areaOfInterest,
       });
-  
-      // Assuming the server returns a JWT token upon successful login
-      console.log(response);
-      const token  = response.data;
-      console.log(token)
-  
-      // Store the token in session storage
+
+      const token = response.data;
       sessionStorage.setItem('token', token);
-      console.log('Registration successful:', response.data);
-  
+
       Swal.fire({
         icon: 'success',
         title: 'Registered successfully!',
       });
-  
+
       navigate('/categories');
     } catch (error) {
       console.error('Registration failed:', error.response.data);
       // Handle registration failure, display an error message, etc.
     }
   };
-  
 
 
   return (

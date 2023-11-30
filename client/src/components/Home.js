@@ -4,8 +4,6 @@ import '../App.css';
 import { Link } from 'react-router-dom';
 
 function Home({ title }) {
-
-  console.log(title)
   useEffect(() => {
     document.title = title; // Set the page title
   }, [title]);
