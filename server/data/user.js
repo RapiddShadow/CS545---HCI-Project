@@ -11,29 +11,15 @@ const saltRounds = 10;
 //Register Function
 const createUser = async (firstName, lastName, age, email, password, areaOfInterest, score, isAdmin ) => {
   // Validations
-      if (!firstName, !lastName, !age, !email, !password, !areaOfInterest, !score, !isAdmin) 
+      if (!firstName, !lastName, !age, !email, !password, !areaOfInterest) 
           throw `All fields must be supplied!`;
-
       firstName =firstName.trim();
       lastName = lastName.trim();
       email = email.trim().toLowerCase();
       areaOfInterest = areaOfInterest.trim();
-      score = score
-      isAdmin = isAdmin
-
-      validName(firstName);
-      validName(lastName);
-      validEmail(email);
-      validPassword(password);
-
-    // const takenEmail = await getUserByEmail(email);
-    // if (takenEmail) throw `Email already registered to another account!`;
-
-  // Trim inputs
-  
-
-  // Mongo Collection operations and password hashing
   try {
+
+    console.log("I am at 35 data")
     const hash = await bcrypt.hash(password, saltRounds);
     const userCollection = await users();
     let newUser = {
@@ -46,12 +32,13 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
               score : score,
               isAdmin : isAdmin
     };
-
     const insertInfo = await userCollection.insertOne(newUser);
     if (!insertInfo.acknowledged || !insertInfo.insertedId)
       throw internalServerError("Could not add user");
-  
-    return {insertedUser: true};
+
+    const existingUser = await getUserByEmail(email);
+    console.log("from 40" ,existingUser._id.toString());
+      return existingUser._id.toString();
   } catch (err) {
     throw err;
   }

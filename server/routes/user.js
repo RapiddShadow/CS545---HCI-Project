@@ -8,36 +8,33 @@ const { ObjectId } = require("mongodb");
 
   router.route("/register").post(async (req, res) => {
     let requestData = req.body;
+
+    console.log(requestData);
     try{
       // Empty field validations
-      if (!requestData.firstName, !requestData.lastName, !requestData.age, !requestData.email, !requestData.password,             !requestData.areaOfInterest, !requestData.score, !requestData.isAdmin) 
+      if (!requestData.firstName || !requestData.lastName || !requestData.age ||  !requestData.email || !requestData.password || !requestData.areaOfInterest) {
+        console.log("at 16 royte")
         throw {statusCode: 400, message: "Please provide all fields!"};
-
-      validName(requestData.firstName);
-      validName(requestData.lastName);
-      validAge(requestData.age);
-      validEmail(requestData.email);
-      validPassword(requestData.password);
-      //valid(requestData.areaOfInterest);
-
-    }catch(e) {
-        throw e;
+      }
+    } catch(e) {
+        console.log("I am at 21")
+        res.status(400).send(e.message);
     }
-    
 
-    usersList = await userData.createUser(
-              requestData.firstName, 
-              requestData.lastName, 
-              requestData.age, 
-              requestData.email, 
-              requestData.password, 
-              requestData.areaOfInterest, 
-              requestData.score, 
-              requestData.isAdmin
-              )
-      if(usersList.insertedUser)
-        res.json("Inserted")
-    
+    try {
+        usersList = await userData.createUser(
+          requestData.firstName, requestData.lastName, requestData.age, requestData.email, requestData.password, requestData.areaOfInterest, 0, false
+        );
+
+        console.log(usersList);
+        if(usersList)
+          res.json(usersList);
+        
+      } catch (e) {
+        console.log("I am at 35")
+        res.status(500).send(e.message);      
+      }
+
   });
 
 

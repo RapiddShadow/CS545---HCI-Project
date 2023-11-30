@@ -1,92 +1,84 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 
-const SignIn = ({ title }) => {
+const SignUp = ({ title }) => {
 
-  React.useEffect(() => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    age: '',
+    areaOfInterest: 'select Area of Interest', // Set a default value for the select
+  });
+
+  useEffect(() => {
     document.title = title; // Set the page title
   }, [title]);
   
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-      username: '',
-      password: '',
-      dob: '',
-      phone: '',
-      email: '',
-      country: '',
-      profilePic: '',
-      bio: '',
-      isPremium: false,
-  });
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // const [createUser, { loading, error, data }] = useMutation(queries.CREATE_USER, {
-  //   onCompleted: async () => {
-  //     console.log('User Created');
-  //     navigate('/signin');
-
-  //   },
-  //   onError: (error) => {
-
-  //     console.log(error);
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error!',
-  //       text: error.message.split(':')[1].trim().replace(/"/g, ''),
-  //       confirmButtonText: "Fix it",
-  //     });
-  //     console.log(error.message.split(':')[1].trim().replace(/"/g, ''));
-  //     console.log('User not created');
-  //   },
-  // });
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const { username, password, dob, phone, email, country, bio } = formData
-  //   if(!username || !password || !email || !dob || !phone || !country || !bio) {
-  //     console.log('Something is empty');
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error!',
-  //       text: 'Please fill up all the fields',
-  //     });
-  //   } else{
-  //     createUser({ variables: { username, password, dob, phone, email, country, bio } });
-  //   }
-  // };
-
-  const handleDateChange = (date) => {
-    setFormData({
-      ...formData,
-      dob: date
-    });
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+  
+    try {
+      const response = await axios.post('http://localhost:4000/register', {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password,
+        age: formData.age,
+        areaOfInterest: formData.areaOfInterest,
+      });
+  
+      // Assuming the server returns a JWT token upon successful login
+      console.log(response);
+      const token  = response.data;
+      console.log(token)
+  
+      // Store the token in session storage
+      sessionStorage.setItem('token', token);
+      console.log('Registration successful:', response.data);
+  
+      Swal.fire({
+        icon: 'success',
+        title: 'Registered successfully!',
+      });
+  
+      navigate('/categories');
+    } catch (error) {
+      console.error('Registration failed:', error.response.data);
+      // Handle registration failure, display an error message, etc.
+    }
   };
+  
+
 
   return (
-    <div class="col-md-6 offset-3 align-items-center ">
+    <div className="col-md-6 offset-3 align-items-center ">
       <br></br>
       <div className="wsk-cp-matches" >
       <h5>Sign Up</h5>
         <hr style={{ background: "#D3D3D3",height: "2px", border: "none", opacity:0.5}}/>
         <br></br>
-        {/* <form onSubmit={handleSubmit}> */}
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
-              <label htmlFor="username" className="teamname ">First Name</label>
+              <label htmlFor="firstName" className="teamname ">First Name</label>
               <div className="col-sm-6 offset-3 align-items-center ">
                 <input
                   type="text"
                   className="form-control"
-                  id="username"
-                  name="username"
-                  value={formData.username}
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleInputChange}
                 />
               </div>
@@ -94,14 +86,14 @@ const SignIn = ({ title }) => {
           <br></br>
 
           <div className="form-group">
-              <label htmlFor="username" className="teamname ">Last Name</label>
+              <label htmlFor="lastName" className="teamname ">Last Name</label>
               <div className="col-sm-6 offset-3 align-items-center ">
                 <input
                   type="text"
                   className="form-control"
-                  id="username"
-                  name="username"
-                  value={formData.username}
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
                   onChange={handleInputChange}
                 />
                 </div>
@@ -154,15 +146,15 @@ const SignIn = ({ title }) => {
           <div className="form-group">
             <label htmlFor="areaOfInterest" className='teamname'>Area of Interest</label>
             <div className="col-sm-6 offset-3 align-items-center ">
-          <select className="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} >
+          <select className="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} onChange={handleInputChange}>
               <option>select Area of Interest</option>
-              <option value="pop">Pop Culture</option>
-              <option value="geo">Geography</option>
-              <option value="his">History</option>
-              <option value="spo">Sports</option>
-              <option value="sci">Science</option>
-              <option value="surprise">Surprise Me!</option>
-              </select>
+              <option value="pop culture">Pop Culture</option>
+              <option value="geography">Geography</option>
+              <option value="history">History</option>
+              <option value="sports">Sports</option>
+              <option value="science">Science</option>
+              <option value="surprise me">Surprise Me!</option>
+          </select>
           </div>
           </div>
 
@@ -178,4 +170,4 @@ const SignIn = ({ title }) => {
   );
 };
 
-export default SignIn
+export default SignUp
