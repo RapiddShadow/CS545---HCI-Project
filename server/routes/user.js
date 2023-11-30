@@ -8,8 +8,6 @@ const { ObjectId } = require("mongodb");
 
   router.route("/register").post(async (req, res) => {
     let requestData = req.body;
-    console.log("I am here")
-
     try{
       // Empty field validations
       if (!requestData.firstName, !requestData.lastName, !requestData.age, !requestData.email, !requestData.password,             !requestData.areaOfInterest, !requestData.score, !requestData.isAdmin) 
@@ -45,24 +43,26 @@ const { ObjectId } = require("mongodb");
 
   router.route("/login").post(async (req, res) => {
     let requestData = req.body;
-    console.log("heyyyyy")
     try{
       if (!requestData.email, !requestData.password) 
         throw {statusCode: 400, message: "Please provide all fields!"};
-      validEmail(requestData.email);
-      validPassword(requestData.password);
+      // validEmail(requestData.email);
+      // validPassword(requestData.password);
     }catch(e) {
-      console.log("in catch 54")
       res.status(400).send("Either the email or password is invalid");
       //throw badRequestError("Either the email or password is invalid");
     }
 
-    const loggedIn = await userData.checkUser(requestData.email, requestData.password);
 
-    console.log(loggedIn)
+    try{
+    const loggedIn = await userData.checkUser(requestData.email, requestData.password);
     if(loggedIn){     
-        return res.json("Logged In")
+        return res.json(loggedIn);
     }  
+  }
+  catch(e){
+    res.status(400).send("Either the email or password is incorrect");
+  }
     
   });
 
@@ -73,7 +73,6 @@ const { ObjectId } = require("mongodb");
     try{
       
       const user = await userData.getUserProfile(requestData.email)
-      console.log("here")
       return res.status(200).json(user)
     }catch(e){
       res.status(500).send("Internal Server Error")

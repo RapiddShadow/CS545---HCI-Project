@@ -21,7 +21,6 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
       score = score
       isAdmin = isAdmin
 
-      console.log(firstName, lastName, age, email, password, areaOfInterest, score, isAdmin )
       validName(firstName);
       validName(lastName);
       validEmail(email);
@@ -35,9 +34,7 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
 
   // Mongo Collection operations and password hashing
   try {
-    console.log("I'm at 34")
     const hash = await bcrypt.hash(password, saltRounds);
-    console.log(hash)
     const userCollection = await users();
     let newUser = {
               firstName: firstName,
@@ -63,24 +60,23 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
 
 //Login Function
 const checkUser =  async (email, password ) => {
-
   email = email.trim().toLowerCase();
+
   try {
-   validEmail(email);
-   validPassword(password);
+  //  validEmail(email);
+  //  validPassword(password);
   } catch (e) {
       throw e;
   }
   
-  console.log("okayyy here")
   try {
     const existingUser = await getUserByEmail(email);
     if (!existingUser) throw badRequestError("Either the email or password is invalid");
-
-    const comparePasswords = await bcrypt.compare(password, existingUser.hashedPassword);
-    console.log(existingUser)
+    const comparePasswords = await bcrypt.compare(password, existingUser.hashedPassword);   
     if (comparePasswords) {
-      return existingUser;
+      //return getUserById(users_data._id.toString());
+      console.log(existingUser._id.toString());
+      return existingUser._id.toString();
     } else 
         throw badRequestError("Either the email or password is invalid");
   } catch (e) {
@@ -96,7 +92,6 @@ const getUserByEmail = async (email) => {
     const user = await userCollection.findOne({ email: email });
     if (!user || user === null) return false;
     user._id = user._id.toString();
-    //console.log(user)
     return user;
   } catch (e) {
     throw e;
@@ -122,7 +117,6 @@ const editUser = async(email, firstName, lastName) => {
         const userCollection = await users()
         const updateUser = await userCollection.updateOne({email: email}, {$set: toUpdateInfo});
         if(!updateUser.matchedCount && !updateUser.modifiedCount) {
-          console.log("failed here")
           throw "Failed to update user details";}
         return await getUserByEmail(email)
 

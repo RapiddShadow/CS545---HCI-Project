@@ -1,14 +1,12 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function Home({ title }) {
 
   React.useEffect(() => {
-    document.title = title; // Set the page title
+    document.title = title;
   }, [title]);
   return(
   <div className="row justify-content-center" id='home'  >

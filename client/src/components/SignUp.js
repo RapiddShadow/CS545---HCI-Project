@@ -1,11 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useMutation } from '@apollo/client';
-// import queries from '../queries';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 
 const SignIn = ({ title }) => {
@@ -16,15 +11,15 @@ const SignIn = ({ title }) => {
   
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-    dob: '',
-    phone: '',
-    email: '',
-    country: '',
-    profilePic: '',
-    bio: '',
-    isPremium: false,
+      username: '',
+      password: '',
+      dob: '',
+      phone: '',
+      email: '',
+      country: '',
+      profilePic: '',
+      bio: '',
+      isPremium: false,
   });
 
   const handleInputChange = (event) => {
@@ -159,7 +154,7 @@ const SignIn = ({ title }) => {
           <div className="form-group">
             <label htmlFor="areaOfInterest" className='teamname'>Area of Interest</label>
             <div className="col-sm-6 offset-3 align-items-center ">
-          <select class="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} >
+          <select className="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} >
               <option>select Area of Interest</option>
               <option value="pop">Pop Culture</option>
               <option value="geo">Geography</option>

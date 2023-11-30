@@ -1,103 +1,73 @@
-import React from 'react';
-import { useState } from 'react';
-import { useMutation } from '@apollo/client';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const SignIn = ({ title }) => {
-
-  React.useEffect(() => {
-    document.title = title; // Set the page title
-  }, [title]);
-
-  const navigate = useNavigate();
+const SignIn = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // const [loginUser, { loading, error, data }] = useMutation(queries.LOGIN, {
-  //   onCompleted: async (response) => {
-  //     console.log(response);
-  //     console.log('User exists');
-  //     sessionStorage.setItem('sessionToken',JSON.stringify(response));
-  //     window.location.href = 'http://localhost:3000/';
+  const handleLogin = async (event) => {
+    event.preventDefault();
 
-  //   },
-  //   onError: (error) => {
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error!',
-  //       text: 'Either the username or password is incorrect',
-  //     });
-  //     console.log('User does not exist');
-  //   },
-  // });
+    try {
+      const response = await axios.post('http://localhost:4000/login', {
+        email: formData.email,
+        password: formData.password,
+      });
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const { username, password } = formData;
-  //   if(!username || !password) {
-  //     console.log('Username or password is empty');
-  //     Swal.fire({
-  //       icon: 'error',
-  //       title: 'Error!',
-  //       text: 'Either the username or password is empty',
-  //     });
-  //   } else{
-  //     loginUser({ variables: { username, password } });
-  //   }
-    
-  // };
+      // Assuming the server returns a JWT token upon successful login
+      
+      const token  = response.data;
+      console.log(token)
+
+      // Store the token in session storage
+      sessionStorage.setItem('token', token);
+      console.log('Login successful:', response.data);
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged in successfully!',
+      });
+      navigate('/categories');
+    } catch (error) {
+      console.error('Login failed:', error.response.data);
+      // Handle login failure, display an error message, etc.
+    }
+  };
 
   return (
-    <div class="col-md-4  offset-4 align-items-center ">
-      <br></br><br></br><br></br>
-      <div className="wsk-cp-matches " >
+    <div className="col-md-4 offset-4 align-items-center ">
+      <br /><br /><br></br>
+      <div className="wsk-cp-matches ">
         <h5>Login</h5>
-        <hr style={{ background: "#D3D3D3",height: "2px", border: "none", opacity:0.5}}/>
-        <br></br>
-        {/* <form onSubmit={handleSubmit}> */}
-        <form>
+        <hr style={{ background: '#D3D3D3', height: '2px', border: 'none', opacity: 0.5 }} /><br />
+        <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="email" className='teamname'>Email</label>
-            <input
-              type="text"
-              className="form-control"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
-              
-            />
+            <label>Email:</label>
+            <input type="text" className="form-control" name="email" value={formData.email} onChange={handleInputChange} required />
           </div>
-          <div className="form-group">
-            <label htmlFor="password" className='teamname'>Password</label>
-            <input
-              type="password"
-              className="form-control"
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleInputChange}
-                
-            />
-            <br></br>
+          <br />
+          <div>
+            <label>Password:</label>
+            <input type="password" className="form-control" name="password" value={formData.password} onChange={handleInputChange} required />
           </div>
-          <button type="submit" className="round-button">
-            Log In
-          </button>
-          <br></br><br></br>
+          <br />
+          <button className="round-button" type="submit">Login</button>
+          <br /><br />
         </form>
       </div>
     </div>
-    
   );
 };
 
-export default SignIn
+export default SignIn;
+
