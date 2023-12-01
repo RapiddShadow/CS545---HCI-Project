@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card,  CardContent, CardMedia, Grid, Typography,  Container} from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import '../App.css';
 
 
@@ -11,12 +12,14 @@ const QuizCategories = ({ title }) => {
 
   const buildCard = (card) => (
     <Card key={card.title}>
+      <Link to="/quiz">
       <CardMedia component="img" alt={card.title} height="350" image={card.imageUrl} style={{ width: `${card.imageWidth}px`, height: `${card.imageHeight}px`, objectFit: 'cover' }}/>
       <CardContent>
         <Typography variant="h5" component="div">
           {card.title}
         </Typography>
       </CardContent>
+      </Link>
     </Card>
   );
 
