@@ -1,0 +1,6 @@
+{
+  "mongoConfig": {
+    "serverUrl": "https://us-east-1.aws.data.mongodb-api.com/app/data-qytiz/endpoint/data/v1",
+    "database": "triviagame"
+  }
+}
