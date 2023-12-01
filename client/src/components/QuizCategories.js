@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link, useParams , useNavigate } from 'react-router-dom';
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography, makeStyles, Container} from '@material-ui/core';
+import React, { useState } from 'react';
+import { Card,  CardContent, CardMedia, Grid, Typography,  Container} from '@material-ui/core';
 import '../App.css';
 
 
-const QuizCategories = () => {
+const QuizCategories = ({ title }) => {
 
-
+  React.useEffect(() => {
+    document.title = title; // Set the page title
+  }, [title]);
 
   const buildCard = (card) => (
     <Card key={card.title}>

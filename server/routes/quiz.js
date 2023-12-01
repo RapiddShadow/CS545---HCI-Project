@@ -8,7 +8,7 @@ const { ObjectId } = require("mongodb");
 router.route("/quiz").get(async (req, res) => {
     try{
         let reqData = req.body;
-        validString(reqData.category);
+        //validString(reqData.category);
         let popQs = await quizData.getQuizQuestions(reqData.category);
         return res.json(popQs);
     }

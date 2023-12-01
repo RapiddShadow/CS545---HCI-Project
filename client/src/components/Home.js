@@ -1,15 +1,13 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
+import React, { useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 import '../App.css';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function Home({ title }) {
-
-  React.useEffect(() => {
+  useEffect(() => {
     document.title = title; // Set the page title
   }, [title]);
+
   return(
   <div className="row justify-content-center" id='home'  >
       <div className="col-md-10" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -32,8 +30,8 @@ function Home({ title }) {
                         <div className="d-block" style={{ position: 'relative' }}>
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/QNA.jpg" />
-                            <Link to="/signup">
-                            <button className="round-button">Sign Up</button>
+                            <Link to="/register">
+                            <button className="round-button">Register</button>
                             </Link>
                             <br></br>
                           </Card>

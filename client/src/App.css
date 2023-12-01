@@ -768,3 +768,28 @@ a.buy-btn:focus {
   box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(246, 84, 174) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
   transition: all 0.2s;
 }
+
+.access-forbidden-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8d7da; /* Light red background color */
+}
+
+.access-forbidden-content {
+  text-align: center;
+  padding: 20px;
+  background-color: #fff; /* White content background color */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+}
+
+/* Additional styling, adjust as needed */
+h1 {
+  color: #721c24; /* Dark red color for the heading */
+}
+
+p {
+  color: #721c24; /* Dark red color for the paragraph */
+}
