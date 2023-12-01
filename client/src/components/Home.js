@@ -14,10 +14,10 @@ function Home({ title }) {
   <div className="row justify-content-center" id='home'  >
       <div className="col-md-10" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <div className="d-flex">
-                      <div className="col-md-6 mx-auto"> {/* Use mx-auto to center the column */}
+                      <div className="col-md-5 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
                           <Card className="card-with-border">
-                            <Card.Img variant="top" src="/images/QNA.jpg" />
+                            <Card.Img variant="top" src="/images/login.png" style={{ objectFit: 'cover' }}/>
                             <Link to="/signin">
                             <button className="round-button">Log In</button>
                             </Link>
@@ -26,12 +26,12 @@ function Home({ title }) {
                         </div>
                       </div>
 
-                      <div className="col-md-2"></div> {/* Gap of 3 columns here */}
+                      <div className="col-md-1"></div> {/* Gap of 3 columns here */}
 
-                      <div className="col-md-6 mx-auto"> {/* Use mx-auto to center the column */}
+                      <div className="col-md-5 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
                           <Card className="card-with-border">
-                            <Card.Img variant="top" src="/images/QNA.jpg" />
+                            <Card.Img variant="top" src="/images/signup.png" style={{ objectFit: 'cover' }}/>
                             <Link to="/signup">
                             <button className="round-button">Sign Up</button>
                             </Link>

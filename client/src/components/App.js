@@ -6,11 +6,13 @@ import SignUp from './SignUp';
 import SignOut from './SignOut';
 import Home from './Home';
 import Navigation from './Navigation';
+import Quiz from './QuizCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import QuizCategories from './QuizCategories';
+import QuizCard from './QuizCard';
 
 
 
@@ -50,7 +52,7 @@ function App() {
                 <Route path='/signup' element={<SignUp title="Sign Up"/>} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories />} />
-
+                <Route path='/quiz' element={<QuizCard />} />
               </Routes>
             </div>
 
@@ -93,6 +95,7 @@ else{
                 <Route path='/signup' element={<SignUp title="Sign Up"/>} />
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories />} />
+                <Route path='/quiz' element={<QuizCard />} />
               </Routes>
             </div>
 
