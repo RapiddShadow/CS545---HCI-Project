@@ -52,7 +52,7 @@ input {
 .App-title {
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  /* color: white; */
 }
 
 cite {
@@ -181,7 +181,7 @@ ul {
 }
 
 .bg {
-  background-color: black;
+  background-color: navy;
 }
 
 .navbar-brand {
@@ -202,7 +202,7 @@ ul {
 #home {
   width: 100%;
   height: auto;
-  background-color: #2d2d2d;
+  background-color: white;
   background-size: cover;
 }
 
@@ -755,17 +755,17 @@ a.buy-btn:focus {
   display: inline-block;
   outline: 0;
   border: 0;
+  border-color: black;
   cursor: pointer;
   text-decoration: none;
   position: relative;
-  color: #000; /* Set the text color to black */
-  background: #fff;
+  color: black; /* Set the text color to black */
+  background: white;
   line-height: 20px;
   border-radius: 40px;
   padding: 10px;
   font-size: 20px;
   font-weight: 600;
-  box-shadow: rgb(255, 198, 0) -2px -2px 0px 2px, rgb(246, 84, 174) 0px 0px 0px 4px, rgba(0, 0, 0, 0.05) 0px 0px 2px 7px;
   transition: all 0.2s;
 }
 

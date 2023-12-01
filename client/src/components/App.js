@@ -7,11 +7,13 @@ import SignOut from './SignOut';
 import Home from './Home';
 import UserProfile from './UserProfile';
 import Navigation from './Navigation';
+import Quiz from './QuizCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import QuizCategories from './QuizCategories';
+import QuizCard from './QuizCard';
 import AccessForbidden from './AccessForbidden';
 
 
@@ -48,7 +50,7 @@ function App() {
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title="Categories"/>} />
                 <Route path='/user-profile' element= {<UserProfile/>} />
-
+                <Route path='/quiz' element={<QuizCard />} />
               </Routes>
             </div>
 
@@ -92,6 +94,7 @@ else{
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title = "Categories"/>} />
                 <Route path='/user-profile' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/quiz' element={<QuizCard />} />
               </Routes>
             </div>
 
