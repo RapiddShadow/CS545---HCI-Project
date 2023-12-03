@@ -19,7 +19,7 @@ const { ObjectId } = require("mongodb");
 
     try {
         usersList = await userData.createUser(
-          requestData.firstName, requestData.lastName, requestData.age, requestData.email, requestData.password, requestData.areaOfInterest, 0, false
+          requestData.firstName, requestData.lastName, requestData.age, requestData.email, requestData.password, requestData.areaOfInterest, 0,0,0,0,0,0, false
         );
         if(usersList)
           res.json(usersList);
@@ -40,7 +40,7 @@ const { ObjectId } = require("mongodb");
       // validPassword(requestData.password);
     }catch(e) {
       res.status(400).send("Either the email or password is invalid");
-      //throw badRequestError("Either the email or password is invalid");
+      throw badRequestError("Either the email or password is invalid");
     }
 
 
@@ -86,10 +86,12 @@ const { ObjectId } = require("mongodb");
   .route("/userprofile/getscore")
   .get(async(req,res) => {
     let requestData = req.body;
+    
     try{
       
-      const user = await userData.getUserProfile(requestData.email)
-      return res.status(200).json(user.score)
+      const user = await userData.getAllScores(requestData.email)
+      console.log(user)
+      return res.status(200).json(user)
     }catch(e){
       res.status(500).send("Internal Server Error")
     }
