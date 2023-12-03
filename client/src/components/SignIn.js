@@ -69,7 +69,7 @@ const SignIn = ({ title }) => {
 
       navigate('/categories');
     } catch (error) {
-      console.error('Login failed:', error.response.data);
+      // console.error('Login failed:', error.response.data);
       // Handle login failure, display an error message, etc.
     }
   };

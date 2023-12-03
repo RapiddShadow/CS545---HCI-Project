@@ -9,7 +9,7 @@ const saltRounds = 10;
 
 
 //Register Function
-const createUser = async (firstName, lastName, age, email, password, areaOfInterest, score, isAdmin ) => {
+const createUser = async (firstName, lastName, age, email, password, areaOfInterest, Pop_score, Geo_score, Hist_score, Sport_score, Sci_score,Surprise_score, isAdmin ) => {
   // Validations
       if (!firstName, !lastName, !age, !email, !password, !areaOfInterest) 
           throw `All fields must be supplied!`;
@@ -27,7 +27,12 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
               email: email,
               hashedPassword: hash,
               areaOfInterest : areaOfInterest,
-              score : score,
+              Pop_score : Pop_score,
+              Geo_score :Geo_score,
+              Hist_score : Hist_score,
+              Sport_score: Sport_score,
+              Sci_score : Sci_score,
+              Surprise_score : Surprise_score,  
               isAdmin : isAdmin
     };
     const insertInfo = await userCollection.insertOne(newUser);
@@ -115,7 +120,8 @@ const editUser = async(email, firstName, lastName) => {
       email = email.trim().toLowerCase(); 
     const userCollection = await users()
     const user = await userCollection.findOne({email: email})
-    return user
+    const scores = {popCulture_Score : user.Pop_score, Geography_Score : user.Geo_score, History_Score : user.Hist_score, sports_Score : user.Sport_score, science_Score: user.Sci_score, Surprise_score: user.Surprise_score}
+    return scores
     }catch(e){
       throw e
     }

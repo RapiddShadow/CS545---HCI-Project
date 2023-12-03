@@ -106,7 +106,7 @@ const QuizCard = () => {
 
   return (
 
-    <div className="col-md-8 offset-2 align-items-center ">
+    <div className="col-md-8 offset-2 align-items-center">
       <br /><br /><br></br>
       <div className="wsk-cp-matches ">
 
@@ -134,7 +134,7 @@ const QuizCard = () => {
               {questionsData[currentQuestion].question}
             </Typography>
             <FormControl component="fieldset">
-              <FormLabel component="legend" style={{ color: 'white' }}>Options</FormLabel>
+              <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
               <RadioGroup value={selectedOption} onChange={handleOptionChange}>
                 {questionsData[currentQuestion].options.map((option, index) => (
                   <FormControlLabel key={index} value={option} control={<Radio style={{ color: 'white' }} />}  label={option} />
