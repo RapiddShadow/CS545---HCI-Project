@@ -85,7 +85,7 @@ const Navigation = () => {
           SignOut
         </NavLink>
         <NavLink className='nav-links' to='/user-profile'>
-          My profile
+          My Profile
         </NavLink>
       </nav>
     );
