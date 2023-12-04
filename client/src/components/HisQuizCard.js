@@ -149,9 +149,11 @@ const HisQuizCard = () => {
           Quiz
         </Typography>
         
-        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-            Time Left: {seconds} seconds
-        </Typography>
+        {currentQuestion < questionsData.length ? (
+              <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
+                Time Left: {seconds} seconds
+              </Typography>
+            ) : null}
 
         <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
             Hint 
