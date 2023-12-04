@@ -64,7 +64,7 @@ const checkUser =  async (email, password ) => {
     const comparePasswords = await bcrypt.compare(password, existingUser.hashedPassword);   
     if (comparePasswords) {
       //return getUserById(users_data._id.toString());
-      return existingUser._id.toString();
+      return existingUser;
     } else 
         throw badRequestError("Either the email or password is invalid");
   } catch (e) {

@@ -52,7 +52,7 @@ const SignUp = ({ title }) => {
       });
 
       const token = response.data;
-      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', JSON.stringify(token));
 
       Swal.fire({
         icon: 'success',
