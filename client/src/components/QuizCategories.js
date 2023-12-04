@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card,  CardContent, CardMedia, Grid, Typography,  Container} from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import '../App.css';
 
 
@@ -12,26 +12,24 @@ const QuizCategories = ({ title }) => {
 
   const buildCard = (card) => (
     <Card key={card.title}>
-      <Link to="/quiz">
+      <NavLink to={card.quizLink}>
       <CardMedia component="img" alt={card.title} height="350" image={card.imageUrl} style={{ width: `${card.imageWidth}px`, height: `${card.imageHeight}px`, objectFit: 'cover' }}/>
       <CardContent>
         <Typography variant="h5" component="div">
           {card.title}
         </Typography>
       </CardContent>
-      </Link>
+      </NavLink>
     </Card>
   );
 
-
-
   const cardData = [
-    { title: 'Pop Culture', imageUrl: "/images/popculture.png" },
-    { title: 'Geography', imageUrl: '/images/geography.png' },
-    { title: 'History', imageUrl: '/images/history.png' },
-    { title: 'Sports', imageUrl: '/images/sports.png' },
-    { title: 'Science', imageUrl: '/images/science.png' },
-    { title: 'Surprise Me', imageUrl: '/images/surpriseme.png' },
+    { title: 'Pop Culture', imageUrl: "/images/popculture.png", quizLink: '/pop-quiz'},
+    { title: 'Geography', imageUrl: '/images/geography.png', quizLink: '/geo-quiz' },
+    { title: 'History', imageUrl: '/images/history.png', quizLink: '/his-quiz' },
+    { title: 'Sports', imageUrl: '/images/sports.png', quizLink: '/sports-quiz' },
+    { title: 'Science', imageUrl: '/images/science.png', quizLink: '/science-quiz' },
+    { title: 'Surprise Me', imageUrl: '/images/surpriseme.png', quizLink: '/surprise-quiz' },
   ];
 
   const [loading, setLoading] = useState(true);
