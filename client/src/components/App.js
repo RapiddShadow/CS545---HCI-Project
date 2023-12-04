@@ -7,14 +7,19 @@ import SignOut from './SignOut';
 import Home from './Home';
 import UserProfile from './UserProfile';
 import Navigation from './Navigation';
-import Quiz from './QuizCard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import QuizCategories from './QuizCategories';
-import QuizCard from './QuizCard';
 import AccessForbidden from './AccessForbidden';
+import PopQuizCard from './PopQuizCard';
+import GeoQuizCard from './GeoQuizCard';
+import HisQuizCard from './HisQuizCard';
+import SportsQuizCard from './SportsQuizCard';
+import ScienceQuizCard from './ScienceQuizCard';
+import SurpriseQuizCard from './SurpriseQuizCard';
+
 
 
 
@@ -50,7 +55,12 @@ function App() {
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title="Categories"/>} />
                 <Route path='/user-profile' element= {<UserProfile/>} />
-                <Route path='/quiz' element={<QuizCard />} />
+                <Route path='/pop-quiz' element={<PopQuizCard />} />
+                <Route path='/geo-quiz' element={<GeoQuizCard />} />
+                <Route path='/his-quiz' element={<HisQuizCard />} />
+                <Route path='/sports-quiz' element={<SportsQuizCard />} />
+                <Route path='/science-quiz' element={<ScienceQuizCard />} />
+                <Route path='/surprise-quiz' element={<SurpriseQuizCard />} />
               </Routes>
             </div>
 
@@ -94,7 +104,12 @@ else{
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title = "Categories"/>} />
                 <Route path='/user-profile' element={<AccessForbidden title="Access Forbidden" />} />
-                <Route path='/quiz' element={<QuizCard />} />
+                <Route path='/pop-quiz' element={<PopQuizCard />} />
+                <Route path='/geo-quiz' element={<GeoQuizCard />} />
+                <Route path='/his-quiz' element={<HisQuizCard />} />
+                <Route path='/sports-quiz' element={<SportsQuizCard />} />
+                <Route path='/science-quiz' element={<ScienceQuizCard />} />
+                <Route path='/surprise-quiz' element={<SurpriseQuizCard />} />
               </Routes>
             </div>
 
