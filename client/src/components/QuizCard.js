@@ -103,13 +103,14 @@ const QuizCard = () => {
   const handleTimeout = () => {
     setTimeOut(true);
   };
-
+ 
   return (
 
     <div className="col-md-8 offset-2 align-items-center">
       <br /><br /><br></br>
+      
       <div className="wsk-cp-matches ">
-
+      
     <Card style={{
         background: 'navy', // Blue background
         color: 'white', // White text
