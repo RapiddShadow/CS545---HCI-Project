@@ -95,12 +95,6 @@ const Navigation = () => {
         <NavLink className='nav-links' to='/'>
           Home
         </NavLink>
-        <NavLink className='nav-links' to='/signin'>
-          LogIn
-        </NavLink>
-        <NavLink className='nav-links' to='/register'>
-          Register
-        </NavLink>
         <NavLink className='nav-links' to='/categories'>
           Quiz
         </NavLink>
