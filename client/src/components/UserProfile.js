@@ -1,126 +1,66 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardMedia, Grid, Container, Button, Dialog, DialogTitle, DialogContent, DialogActions }  from '@material-ui/core';
+import React, { useState , useEffect} from 'react';
+import { Card, CardContent, Typography }  from '@material-ui/core';
 
 const UserProfile = ({ title }) => {
-  const [openEditProfile, setOpenEditProfile] = useState(false);
-  const [openCheckScore, setOpenCheckScore] = useState(false);
-  const [openSubmitForm, setOpenSubmitForm] = useState(false);
-  const [openSeeDetails, setOpenSeeDetails] = useState(false);
+  const [userData, setUserData] = useState(null);
 
-  const handleOpenEditProfile = () => setOpenEditProfile(true);
-  const handleCloseEditProfile = () => setOpenEditProfile(false);
-
-  const handleOpenCheckScore = () => setOpenCheckScore(true);
-  const handleCloseCheckScore = () => setOpenCheckScore(false);
-
-  const handleOpenSubmitForm = () => setOpenSubmitForm(true);
-  const handleCloseSubmitForm = () => setOpenSubmitForm(false);
-
-  const handleOpenSeeDetails = () => setOpenSeeDetails(true);
-  const handleCloseSeeDetails = () => setOpenSeeDetails(false);
-
-  React.useEffect(() => {
-    document.title = title; // Set the page title
-  }, [title]);
-
-  const cardStyle = {
-    maxWidth: '200px',
-    marginBottom: '10px',
-    marginRight: '10px',
-    cursor: 'pointer',
-  };
+  useEffect(() => {
+    // Retrieve user data from session
+    const storedUserData = sessionStorage.getItem('token');
+    console.log(storedUserData)
+    
+    if (storedUserData) {
+      // Parse the stored data
+      const parsedUserData = JSON.parse(storedUserData);
+      console.log(parsedUserData)
+      setUserData(parsedUserData);
+    }
+  }, []);
 
   return (
-    <div>
-      <br></br><br></br>
-      <h1>Welcome to your profile page!</h1>
+    <div className="col-md-6 offset-3 d-flex align-items-center">
+  <div className="wsk-cp-matches">
+    <Card style={{ maxWidth: 600, margin: 'auto', marginTop: 50, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+      <CardContent>
+        {userData ? (
+          <>
+            <Typography variant="h5" component="div" style={{ marginBottom: 20, textAlign: 'center' }}>
+              Welcome, {userData.firstName} {userData.lastName}!
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Email: {userData.email}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Area of Interest: {userData.areaOfInterest}
+            </Typography>
+            <hr style={{ margin: '15px 0', border: '0.5px solid #ccc' }} />
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Pop Culture Score: {userData.Pop_score}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Geography Score: {userData.Geo_score}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              History Score: {userData.Hist_score}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Sports Score: {userData.Sport_score}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Science Score: {userData.Sci_score}
+            </Typography>
+            <Typography color="textSecondary" style={{ marginBottom: 10 }}>
+              Surprise Me Score: {userData.Surprise_score}
+            </Typography>
+          </>
+        ) : (
+          <p>Loading...</p>
+        )}
+      </CardContent>
+    </Card>
+  </div>
+</div>
 
-     
-
-      <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' , width: '100wh' }}>
-      <Grid container spacing={5}>
-             {/* Edit Profile Card */}
-            <Card variant="outlined" style={cardStyle} onClick={handleOpenEditProfile}>
-            <CardMedia component="img" alt={"Edit Profile"} height="250" image={'/images/geography.png'} style={{ width: '100wh', height: '100wh', objectFit: 'cover' }}/>
-              <CardContent>
-                <h2>Edit Profile</h2>
-              </CardContent>
-            </Card>
-
-            {/* Check Score Card */}
-            <Card variant="outlined" style={cardStyle} onClick={handleOpenCheckScore}>
-            <CardMedia component="img" alt={"Edit Profile"} height="250" image={'/images/geography.png'} style={{ width: '100wh', height: '100wh', objectFit: 'cover' }}/>
-              <CardContent>
-                <h2>Check Score</h2>
-              </CardContent>
-            </Card>
-
-            {/* Submit Form Card */}
-            <Card variant="outlined" style={cardStyle} onClick={handleOpenSubmitForm}>
-            <CardMedia component="img" alt={"Edit Profile"} height="250" image={'/images/geography.png'} style={{ width: '100wh', height: '100wh', objectFit: 'cover' }}/>
-              <CardContent>
-                <h2>Submit Form</h2>
-              </CardContent>
-            </Card>
-
-            {/* See Details Card */}
-            <Card variant="outlined" style={cardStyle} onClick={handleOpenSeeDetails}>
-            <CardMedia component="img" alt={"Edit Profile"} height="250" image={'/images/geography.png'} style={{ width: '100wh', height: '100wh', objectFit: 'cover' }}/>
-              <CardContent>
-                <h2>See Details</h2>
-              </CardContent>
-            </Card>
-
-        </Grid>
-      </Container>
-
-
-
-      {/* Edit Profile Modal */}
-      <Dialog open={openEditProfile} onClose={handleCloseEditProfile}>
-        <DialogTitle>Edit Profile</DialogTitle>
-        <DialogContent>{/* Add your edit profile content here */}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseEditProfile} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* Check Score Modal */}
-      <Dialog open={openCheckScore} onClose={handleCloseCheckScore}>
-        <DialogTitle>Check Score</DialogTitle>
-        <DialogContent>{/* Add your check score content here */}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseCheckScore} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* Submit Form Modal */}
-      <Dialog open={openSubmitForm} onClose={handleCloseSubmitForm}>
-        <DialogTitle>Submit Form</DialogTitle>
-        <DialogContent>{/* Add your submit form content here */}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseSubmitForm} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* See Details Modal */}
-      <Dialog open={openSeeDetails} onClose={handleCloseSeeDetails}>
-        <DialogTitle>See Details</DialogTitle>
-        <DialogContent>{/* Add your see details content here */}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseSeeDetails} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-    </div>
   );
 };
 

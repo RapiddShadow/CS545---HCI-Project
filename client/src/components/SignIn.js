@@ -16,6 +16,7 @@ const SignIn = ({ title }) => {
 
     // Check if the user is already logged in
     const sessionToken = sessionStorage.getItem('token');
+    console.log(sessionToken)
     if (sessionToken) {
       Swal.fire({
         icon: 'info',
@@ -59,7 +60,8 @@ const SignIn = ({ title }) => {
       console.log(token);
 
       // Store the token in session storage
-      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', JSON.stringify(token));
+      console.log(sessionStorage.getItem('token'))
 
       console.log('Login successful:', response.data);
       Swal.fire({
