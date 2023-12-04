@@ -40,7 +40,7 @@ const createUser = async (firstName, lastName, age, email, password, areaOfInter
       throw internalServerError("Could not add user");
 
     const existingUser = await getUserByEmail(email);
-      return existingUser._id.toString();
+      return existingUser;
   } catch (err) {
     throw err;
   }

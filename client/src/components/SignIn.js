@@ -67,12 +67,18 @@ const SignIn = ({ title }) => {
       Swal.fire({
         icon: 'success',
         title: 'Logged in successfully!',
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          navigate('/categories');
+          window.location.reload();
+        }
       });
-
-      navigate('/categories');
     } catch (error) {
-      // console.error('Login failed:', error.response.data);
-      // Handle login failure, display an error message, etc.
+      Swal.fire({
+        icon: 'error',
+        title: error.response.data,
+      })
+      console.error('Login failed:', error.response.data);
     }
   };
 

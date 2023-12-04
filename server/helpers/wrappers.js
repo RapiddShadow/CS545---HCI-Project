@@ -1,5 +1,4 @@
 const badRequestError = (message) => {
-  console.log("Okay here")
   return { status: 400, message };
 };
 

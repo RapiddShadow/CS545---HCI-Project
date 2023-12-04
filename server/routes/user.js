@@ -90,7 +90,7 @@ const { ObjectId } = require("mongodb");
     try{
       
       const user = await userData.getAllScores(requestData.email)
-      console.log(user)
+      // console.log(user)
       return res.status(200).json(user)
     }catch(e){
       res.status(500).send("Internal Server Error")

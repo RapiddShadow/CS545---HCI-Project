@@ -53,16 +53,24 @@ const SignUp = ({ title }) => {
 
       const token = response.data;
       sessionStorage.setItem('token', JSON.stringify(token));
+      console.log(sessionStorage.getItem('token'))
 
       Swal.fire({
         icon: 'success',
         title: 'Registered successfully!',
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          navigate('/categories');
+          window.location.reload();
+        }
       });
-
-      navigate('/categories');
     } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: error.response.data,
+      })
       console.error('Registration failed:', error.response.data);
-      // Handle registration failure, display an error message, etc.
+      
     }
   };
 
