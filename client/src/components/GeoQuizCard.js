@@ -86,6 +86,7 @@ const GeoQuizCard = () => {
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [userData, setUserData] = useState(null);
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
 
   useEffect(() => {
     // Retrieve user data from session
@@ -164,6 +165,7 @@ const GeoQuizCard = () => {
     calculateScore();
     setQuizCompleted(true);
     setOpenDialog(true);
+    setQuizSubmitted(true);
   };
 
   const handleTimeout = () => {

@@ -85,6 +85,7 @@ const { ObjectId } = require("mongodb");
 
   router.route("/userprofile/update-score").patch(async (req, res) => {
     let requestData = req.body;
+    // console.log(requestData)
     try{
       if (!requestData) 
         throw {statusCode: 400, message: "Please provide all fields!"};

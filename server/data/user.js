@@ -117,25 +117,77 @@ const editUser = async(email, firstName, lastName) => {
 }
 
 const editScore = async(requestData) => {
-  try {  
-    let updateInfo = {}
 
-    const category = requestData.category
-    if (category === 'Geo_score') { updateInfo.Geo_score = requestData.score;}
-    else if (category === 'Pop_score') { updateInfo.Pop_score = requestData.score;}
-    else if (category === 'Hist_score') {updateInfo.Hist_score = requestData.score;}
-    else if (category === 'Sport_score') {updateInfo.Sport_score = requestData.score;}
-    else if (category === 'Sci_score') { updateInfo.Sci_score = requestData.score;}
-    else if (category === 'Surprise_score') {updateInfo.Surprise_score = requestData.score;}
+  console.log(requestData.category)
+  try {  
+    let updateInfo = {
+    }
+
+    // if (category === 'Geo_score') { updateInfo.category = requestData.ca;}
+    // else if (category === 'Pop_score') { updateInfo.Pop_score = requestData.score;}
+    // else if (category === 'Hist_score') {updateInfo.Hist_score = requestData.score;}
+    // else if (category === 'Sport_score') {updateInfo.Sport_score = requestData.score;}
+    // else if (category === 'Sci_score') { updateInfo.Sci_score = requestData.score;}
+    // else if (category === 'Surprise_score') {updateInfo.Surprise_score = requestData.score;}
       
     const userCollection = await users();
 
-    const updateUser = await userCollection.updateOne(
-      { _id: new ObjectId(requestData.id) },
-      { $set: { Geo_score: updateInfo.Geo_score } }
-    );
+    // const updateUser = await userCollection.updateOne(
+    //   { _id: new ObjectId(requestData.id) },
+    //   { $set: { Geo_score: updateInfo.category } }
+    // );
+    if (requestData.category === 'Geo_score'){
+      console.log("geo")
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Geo_score : requestData.score } }
+      );
+    }
+    else if (requestData.category === 'Pop_score'){
+      console.log("pop")
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Pop_score : requestData.score } }
+      );
+
+    }
+
+    else if (requestData.category === 'Hist_score'){
+      console.log("hist")
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Hist_score : requestData.score } }
+      );
+
+    }
+
+    else if (requestData.category === 'Sport_score'){
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Sport_score : requestData.score } }
+      );
+
+    }
+
+    else if (requestData.category === 'Sci_score'){
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Sci_score : requestData.score } }
+      );
+
+    }
+
+    else if (requestData.category === 'Surprise_score'){
+      const updateUser = await userCollection.updateOne(
+        { _id: new ObjectId(requestData.id) },
+        { $set: { Surprise_score : requestData.score } }
+      );
+
+    }
+
     
-    console.log(updateUser)
+    
+    // console.log(updateUser)
     if(!updateUser.matchedCount && !updateUser.modifiedCount) {
       throw "Failed to update user details";}
     return await userCollection.findOne( { _id: new ObjectId(requestData.id) });
