@@ -104,12 +104,12 @@ else{
                 <Route path='/signout' element={<SignOut />} />
                 <Route path='/categories' element={<QuizCategories title = "Categories"/>} />
                 <Route path='/user-profile' element={<AccessForbidden title="Access Forbidden" />} />
-                <Route path='/pop-quiz' element={<PopQuizCard />} />
-                <Route path='/geo-quiz' element={<GeoQuizCard />} />
-                <Route path='/his-quiz' element={<HisQuizCard />} />
-                <Route path='/sports-quiz' element={<SportsQuizCard />} />
-                <Route path='/science-quiz' element={<ScienceQuizCard />} />
-                <Route path='/surprise-quiz' element={<SurpriseQuizCard />} />
+                <Route path='/pop-quiz' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/geo-quiz' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/his-quiz' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/sports-quiz' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/science-quiz' element={<AccessForbidden title="Access Forbidden" />} />
+                <Route path='/surprise-quiz' element={<AccessForbidden title="Access Forbidden" />} />
               </Routes>
             </div>
 
