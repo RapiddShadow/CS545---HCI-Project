@@ -72,6 +72,7 @@ const { ObjectId } = require("mongodb");
 
   router.route("/userprofile/edituser").post(async (req, res) => {
     let requestData = req.body;
+    console.log(requestData)
     try{
       if (!requestData.email, !requestData.firstName, !requestData.lastName) 
         throw {statusCode: 400, message: "Please provide all fields!"};
@@ -82,13 +83,24 @@ const { ObjectId } = require("mongodb");
     }
   });
 
-  router
-  .route("/userprofile/getscore")
-  .get(async(req,res) => {
+  router.route("/userprofile/update-score").patch(async (req, res) => {
+    let requestData = req.body;
+    try{
+      if (!requestData) 
+        throw {statusCode: 400, message: "Please provide all fields!"};
+        const updatedUser = await userData.editScore(requestData)
+        if(updatedUser) 
+            return res.json(updatedUser)
+            //return res.json("Edit user successful")
+    }catch(e){
+      res.status(400).send("Edit user failed")
+    }
+  });
+
+  router.route("/userprofile/getscore").get(async(req,res) => {
     let requestData = req.body;
     
-    try{
-      
+    try{     
       const user = await userData.getAllScores(requestData.email)
       // console.log(user)
       return res.status(200).json(user)

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // import axios from 'axios';
 import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
 
@@ -84,6 +85,27 @@ const GeoQuizCard = () => {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  useEffect(() => {
+    // Retrieve user data from session
+    const storedUserData = sessionStorage.getItem('token');
+    console.log(storedUserData)
+    
+    if (storedUserData) {
+      // Parse the stored data
+      const parsedUserData = JSON.parse(storedUserData);
+      console.log(parsedUserData)
+      setUserData(parsedUserData);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (score > 0) {
+      // Now that the state has been updated, call the backend update function
+      updateScoreOnBackend(score);
+    }
+  }, [score]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,8 +137,27 @@ const GeoQuizCard = () => {
         userScore += 10;
       }
     });
-    setScore(userScore);
+    //setScore(userScore);
+    setScore(userScore, () => {
+      // Now that the state has been updated, call the backend update function
+      updateScoreOnBackend(userScore);
+    });
+    
     setSelectedOptions(Array(questionsData.length).fill(''));
+  };
+
+  const updateScoreOnBackend = async (score) => {
+    console.log(score)
+    try {
+
+      const updatedUserData = { ...userData, Geo_score: score };
+    // Store the updated user data in session storage
+    sessionStorage.setItem('token', JSON.stringify(updatedUserData));
+      const response = await axios.patch('http://localhost:4000/userprofile/update-score',  {id: userData._id, score: score, category :'Geo_score'});
+      console.log('Score updated successfully:', response.data);
+    } catch (error) {
+      console.error('Error updating score:', error);
+    }
   };
 
   const handleSubmission = () => {
