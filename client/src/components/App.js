@@ -25,7 +25,6 @@ import SurpriseQuizCard from './SurpriseQuizCard';
 
 function App() {
   const sessionToken = sessionStorage.getItem('token');
-  // console.log(sessionToken);
   if (sessionToken) {
 
   return (
