@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
+import { Card, CardContent, Typography, Box, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions, Grid} from '@material-ui/core';
 
 const questionsData = [
   {
@@ -181,85 +181,96 @@ const PopQuizCard = () => {
   };
 
   return (
-
-    <div className="col-md-8 offset-2 align-items-center">
-      <br /><br /><br></br>
-      <div className="wsk-cp-matches ">
-
-    <Card style={{
-        background: 'navy',
-        color: 'white',
-      }}>
-      <CardContent>
-        <Typography variant="h4" gutterBottom>
-          Quiz
-        </Typography>
-        
-        {currentQuestion < questionsData.length ? (
-              <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-                Time Left: {seconds} seconds
-              </Typography>
-            ) : null}
-
-        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-            Hint 
-        </Typography>
-
-
-        {currentQuestion < questionsData.length ? (
-          <>
-            <Typography variant="h4" gutterBottom>
-              {questionsData[currentQuestion].question}
-            </Typography>
-            <FormControl component="fieldset">
-              <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
-              <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
-                {questionsData[currentQuestion].options.map((option, index) => (
-                <FormControlLabel key={index} value={option} control={<Radio style={{ color: 'white' }} />}  label={option} />
-                ))}
-              </RadioGroup>
-              {!isTimeOut && (
-                <Button variant="contained" onClick={handleNextQuestion}>
-                  Next Question
-                </Button>
-              )}
-            </FormControl>
-            </>
-        ) : (
-          <div>
-            <Typography variant="h6" gutterBottom>
-              Quiz Completed!
-            </Typography>
-            {!quizCompleted && (
-              <Button variant="contained" onClick={handleSubmission}>
-                Submit
-              </Button>
-            )}
-          </div>
-        )}
-        {isTimeOut && (
-          <div>
-            <Typography variant="h6" gutterBottom>
-              Time's up!
-            </Typography>
-            <Button variant="contained" onClick={handleTimeout}>
+      <div className="col-md-8 offset-2 align-items-center">
+        <br /><br /><br></br>
+        <div className="wsk-cp-matches ">
+          <Card style={{ background: 'navy', color: 'white' }}>
+            <CardContent>
+                <Typography variant="h4" gutterBottom>
+                  Quiz
+                </Typography>
+              {currentQuestion < questionsData.length ? (
+                <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
+                  Time Left: {seconds} seconds
+                </Typography>
+              ) : null}
+    
+                <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
+                  Hint
+                </Typography>
+    
+                {currentQuestion < questionsData.length ? (
+                  <>
+                    <Typography variant="h5" gutterBottom>
+                      {questionsData[currentQuestion].question}
+                    </Typography>
+                    <FormControl component="fieldset">
+                      <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
+                      <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
+                        <Grid container spacing={2}>
+                          {questionsData[currentQuestion].options.map((option, index) => (
+                            <Grid item xs={6} key={index}>
+                              <Box className='boxCSS'>
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio style={{ color: 'white' }} />}
+                                  label={option}
+                                />
+                              </Box>
+                            </Grid>
+                          ))}
+                        </Grid>
+                      </RadioGroup>
+                      
+    
+                      {!isTimeOut && (
+                          <>
+                            <Box marginTop={3}> 
+                              <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
+                                Next Question
+                              </Button>
+                            </Box>
+                          </>
+                      )}
+                    </FormControl>
+                  </>
+                ) : (
+                  <div>
+                    <Typography variant="h6" gutterBottom>
+                      Quiz Completed!
+                    </Typography>
+                    {!quizCompleted && (
+                      <Button variant="contained" onClick={handleSubmission}>
+                        Submit
+                      </Button>
+                    )}
+                  </div>
+                )}
+                {isTimeOut && (
+                  <div>
+                    <Typography variant="h6" gutterBottom>
+                      Time's up!
+                    </Typography>
+                    <Button variant="contained" onClick={handleTimeout}>
+                      Back to the Main Page
+                    </Button>
+                  </div>
+                )}
+              
+            </CardContent>
+          </Card>
+          <Dialog open={openDialog} onClose={handleCloseDialog}>
+            <DialogTitle>Your Score</DialogTitle>
+            <DialogContent>Congratulations! You have completed the quiz. Your score is: {score}</DialogContent>
+            <DialogActions>
+              <Button onClick={handleTimeout} color="primary">
                 Back to the Main Page
               </Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-    <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>Your Score</DialogTitle>
-        <DialogContent>Congratulations! You have completed the quiz. Your score is: {score}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleTimeout} color="primary">
-            Back to the Main Page
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div></div>
-  );
+            </DialogActions>
+          </Dialog>
+        </div>
+      </div>
+    );
 };
 
 export default PopQuizCard;

@@ -12,12 +12,12 @@ function Home({ title }) {
   <div className="row justify-content-center" id='home'  >
       <div className="col-md-10" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <div className="d-flex">
-                      <div className="col-md-5 mx-auto"> {/* Use mx-auto to center the column */}
+                      <div className="col-md-6 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/login.png" style={{ objectFit: 'cover' }}/>
                             <Link to="/signin">
-                            <button className="round-button">Log In</button>
+                            <button className="round-button">Login</button>
                             </Link>
                             <br></br>
                           </Card>

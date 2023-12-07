@@ -733,21 +733,18 @@ a.buy-btn:focus {
   line-height: 20px;
 }
 
-
-
-.searchbar {
-  color: white;
-}
-
-.card-with-borders {
-  width: 18rem;
+.card-with-border {
+  background: navy;
+  width: 27rem;
   margin: 20px;
   padding: 10px; /* Add padding to create an inner border effect */
-  border: 2px solid #680a0a; /* Outer border */
+  border: 1px solid ;
+  border-color: rgb(0, 36, 128); /* Outer border */
   border-radius: 10px; /* Rounded corners for the outer border */
   box-shadow: 
-    inset 0 0 0 5px #f0f0f0, /* Inner border (5px thick) */
-    0 0 0 10px #680a0a; /* Outer border (10px thick) */
+    inset 0 0 0 5px #3828e9, /* Inner border (5px thick) */
+    0 0 0 10px navy; /* Outer border (10px thick) */
+  background-color: navy; /* Set the background color to navy */
 }
 
 
@@ -812,4 +809,26 @@ p {
 @keyframes time{
   0%{width: 100%;}
   100%{width: 0;}
+}
+
+.quizButton {
+  color: white !important;
+  border: 1px solid black;
+  border-radius: 40px; 
+  padding: 0.5rem; 
+  margin: 1rem; /* Smaller margin for gap */
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  margin: 8px;
+}
+
+.boxCSS {
+  border: 1px solid black;
+  border-radius: 40px; 
+  padding: 0.5rem; 
+  margin: 1rem; /* Smaller margin for gap */
+  background: rgba(255, 255, 255, 0.2); /* White background with blur effect */
+  color: white; /* Text color */
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* Smaller box shadow for a blur effect */
 }
