@@ -743,7 +743,7 @@ a.buy-btn:focus {
   border-radius: 10px; /* Rounded corners for the outer border */
   box-shadow: 
     inset 0 0 0 5px #ffffff, /* Inner border (5px thick) */
-    0 0 0 10px rgb(61, 61, 159); /* Outer border (10px thick) */
+    0 0 0 10px navy; /* Outer border (10px thick) */
   background-color: navy; /* Set the background color to navy */
 }
 
