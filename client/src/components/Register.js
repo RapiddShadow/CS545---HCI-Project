@@ -154,13 +154,14 @@ const SignUp = ({ title }) => {
               onChange={handleInputChange}
             />
             </div>
+            <br></br>
           </div>
 
           <div className="form-group">
             <label htmlFor="areaOfInterest" className='teamname'>Area of Interest</label>
             <div className="col-sm-6 offset-3 align-items-center ">
           <select className="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} onChange={handleInputChange}>
-              <option>select Area of Interest</option>
+              <option>Select Area of Interest</option>
               <option value="pop culture">Pop Culture</option>
               <option value="geography">Geography</option>
               <option value="history">History</option>
