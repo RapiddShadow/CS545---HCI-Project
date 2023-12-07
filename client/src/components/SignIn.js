@@ -86,7 +86,7 @@ const SignIn = ({ title }) => {
   return (
     <div className="col-md-4 offset-4 align-items-center ">
       <br /><br /><br></br>
-      <div className="wsk-cp-matches ">
+      <div className="wsk-cp-matches">
         <h5>Login</h5>
         <hr style={{ background: '#D3D3D3', height: '2px', border: 'none', opacity: 0.5 }} /><br />
         <form onSubmit={handleLogin}>

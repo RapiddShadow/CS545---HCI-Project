@@ -3,76 +3,86 @@ import axios from 'axios';
 import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
 
 const questionsData = [
-    {
-        "category": "Mixed",
-        "question": "What traditional Japanese performance art combines singing, acting, and dancing?",
-        "options": ["Kabuki", "Samba", "Ballet", "Flamenco"],
-        "correct_answer": "Kabuki",
-        "difficulty": 1
-    },
-    {
-        "category": "Mixed",
-        "question": "Which country is famous for its colorful and intricate pottery known as 'Delftware'?",
-        "options": ["Italy", "Spain", "Netherlands", "France"],
-        "correct_answer": "Netherlands",
-        "difficulty": 2
-    },
-    {
-        "category": "Mixed",
-        "question": "What Italian dish consists of thinly sliced raw meat or fish, typically served as an appetizer?",
-        "options": ["Sushi", "Bruschetta", "Carpaccio", "Paella"],
-        "correct_answer": "Carpaccio",
-        "difficulty": 3
-    },
-    {
-        "category": "Mixed",
-        "question": "In which country did the Renaissance, a period of great cultural and artistic achievement, originate?",
-        "options": ["France", "Greece", "Italy", "Spain"],
-        "correct_answer": "Italy",
-        "difficulty": 4
-    },
-    {
-        "category": "Mixed",
-        "question": "Which South American dance style originated in the working-class neighborhoods of Buenos Aires?",
-        "options": ["Salsa", "Tango", "Rumba", "Flamenco"],
-        "correct_answer": "Tango",
-        "difficulty": 5
-    },
-    {
-        "category": "Mixed",
-        "question": "Who is the famous playwright known for works like 'Romeo and Juliet' and 'Hamlet'?",
-        "options": ["William Wordsworth", "Charles Dickens", "William Shakespeare", "George Orwell"],
-        "correct_answer": "William Shakespeare",
-        "difficulty": 6
-    },
-    {
-        "category": "Mixed",
-        "question": "What is the traditional percussion instrument of India, consisting of two hand-played drums?",
-        "options": ["Sitar", "Tabla", "Didgeridoo", "Bagpipes"],
-        "correct_answer": "Tabla",
-        "difficulty": 7
-    },
-    {
-        "category": "Mixed",
-        "question": "Who is the author of the epic Indian text, the 'Mahabharata'?",
-        "options": ["Rabindranath Tagore", "Kalidasa", "Vyasa", "Valmiki"],
-        "correct_answer": "Vyasa",
-        "difficulty": 8
-    },
-    {
-        "category": "Mixed",
-        "question": "What style of art, known for its use of geometric shapes and primary colors, was pioneered by Piet Mondrian?",
-        "options": ["Cubism", "Surrealism", "Abstract Art", "Impressionism"],
-        "correct_answer": "Abstract Art",
-        "difficulty": 9
-    },
-    {
-        "category": "Mixed",
-        "question": "Which country is famous for its traditional Maasai warrior dances and distinctive beaded jewelry?",
-        "options": ["Kenya", "Egypt", "Nigeria", "Morocco"],
-        "correct_answer": "Kenya",
-        "difficulty": 10
-    }
+  {
+      "category": "Mixed",
+      "question": "What traditional Japanese performance art combines singing, acting, and dancing?",
+      "options": ["Kabuki", "Samba", "Ballet", "Flamenco"],
+      "correct_answer": "Kabuki",
+      "difficulty": 1,
+      "hint": "In this Japanese art form, performers wear elaborate costumes and use exaggerated gestures to tell stories on stage."
+  },
+  {
+      "category": "Mixed",
+      "question": "Which country is famous for its colorful and intricate pottery known as 'Delftware'?",
+      "options": ["Italy", "Spain", "Netherlands", "France"],
+      "correct_answer": "Netherlands",
+      "difficulty": 2,
+      "hint": "The pottery from this European country is known for its blue and white designs, depicting scenes from daily life."
+  },
+  {
+      "category": "Mixed",
+      "question": "What Italian dish consists of thinly sliced raw meat or fish, typically served as an appetizer?",
+      "options": ["Sushi", "Bruschetta", "Carpaccio", "Paella"],
+      "correct_answer": "Carpaccio",
+      "difficulty": 3,
+      "hint": "This dish, named after a Venetian painter, offers a delightful way to enjoy raw meat or fish with flavorful accompaniments."
+  },
+  {
+      "category": "Mixed",
+      "question": "In which country did the Renaissance, a period of great cultural and artistic achievement, originate?",
+      "options": ["France", "Greece", "Italy", "Spain"],
+      "correct_answer": "Italy",
+      "difficulty": 4,
+      "hint": "During this historical period, Italy became a hub of creativity, witnessing the works of artists like Leonardo da Vinci and Michelangelo."
+  },
+  {
+      "category": "Mixed",
+      "question": "Which South American dance style originated in the working-class neighborhoods of Buenos Aires?",
+      "options": ["Salsa", "Tango", "Rumba", "Flamenco"],
+      "correct_answer": "Tango",
+      "difficulty": 5,
+      "hint": "This passionate and intricate dance form has its roots in the vibrant neighborhoods of Argentina's capital city."
+  },
+  {
+      "category": "Mixed",
+      "question": "Who is the famous playwright known for works like 'Romeo and Juliet' and 'Hamlet'?",
+      "options": ["William Wordsworth", "Charles Dickens", "William Shakespeare", "George Orwell"],
+      "correct_answer": "William Shakespeare",
+      "difficulty": 6,
+      "hint": "This literary genius from the Elizabethan era crafted timeless plays that continue to captivate audiences worldwide."
+  },
+  {
+      "category": "Mixed",
+      "question": "What is the traditional percussion instrument of India, consisting of two hand-played drums?",
+      "options": ["Sitar", "Tabla", "Didgeridoo", "Bagpipes"],
+      "correct_answer": "Tabla",
+      "difficulty": 7,
+      "hint": "These drums are an integral part of Indian classical music, producing rhythmic beats that accompany various musical compositions."
+  },
+  {
+      "category": "Mixed",
+      "question": "Who is the author of the epic Indian text, the 'Mahabharata'?",
+      "options": ["Rabindranath Tagore", "Kalidasa", "Vyasa", "Valmiki"],
+      "correct_answer": "Vyasa",
+      "difficulty": 8,
+      "hint": "Attributed to this ancient sage, the 'Mahabharata' is an epic poem that narrates the Kurukshetra War and includes the Bhagavad Gita."
+  },
+  {
+      "category": "Mixed",
+      "question": "What style of art, known for its use of geometric shapes and primary colors, was pioneered by Piet Mondrian?",
+      "options": ["Cubism", "Surrealism", "Abstract Art", "Impressionism"],
+      "correct_answer": "Abstract Art",
+      "difficulty": 9,
+      "hint": "This art movement emphasizes simplicity and clarity, with artists like Mondrian creating compositions with bold lines and colors."
+  },
+  {
+      "category": "Mixed",
+      "question": "Which country is famous for its traditional Maasai warrior dances and distinctive beaded jewelry?",
+      "options": ["Kenya", "Egypt", "Nigeria", "Morocco"],
+      "correct_answer": "Kenya",
+      "difficulty": 10,
+      "hint": "The vibrant cultural heritage of this African nation includes dynamic warrior dances and intricate beadwork."
+  }
 ];
 
 
@@ -84,18 +94,62 @@ const SurpriseQuizCard = () => {
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
+  const handleHintButtonClick = () => {
+    setShowHint(true);
+  };
+
+  const handleCloseHintDialog = () => {
+    setShowHint(false);
+  };
+
+  useEffect(() => {
+    // Retrieve user data from session
+    const storedUserData = sessionStorage.getItem('token');
+    console.log(storedUserData)
+    
+    if (storedUserData) {
+      // Parse the stored data
+      const parsedUserData = JSON.parse(storedUserData);
+      console.log(parsedUserData)
+      setUserData(parsedUserData);
+    }
+  }, []);
+
+  useEffect(() => {
+    resetTimer();
+  }, [currentQuestion]);
+
+  useEffect(() => {
+    if (score > 0) {
+      // Now that the state has been updated, call the backend update function
+      updateScoreOnBackend(score);
+    }
+  }, [score]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds - 1);
+      if (!quizSubmitted) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
     }, 900);
+
     if (seconds === 0) {
       clearInterval(interval);
       setTimeOut(true);
     }
-    return () => clearInterval(interval);
-  }, [seconds]);
 
+    return () => clearInterval(interval);
+  }, [seconds, quizSubmitted]);
+
+  const resetTimer = () => {
+    setSeconds(60);
+    setTimeOut(false);
+  };
+  
   const handleOptionChange = (event) => {
     const newSelectedOptions = [...selectedOptions];
     newSelectedOptions[currentQuestion] = event.target.value;
@@ -115,14 +169,33 @@ const SurpriseQuizCard = () => {
         userScore += 10;
       }
     });
-    setScore(userScore);
+    // setScore(userScore);
+    setScore(userScore, () => {
+      // Now that the state has been updated, call the backend update function
+      updateScoreOnBackend(userScore);
+    });
     setSelectedOptions(Array(questionsData.length).fill(''));
+  };
+
+  const updateScoreOnBackend = async (score) => {
+    console.log(score)
+    try {
+
+      const updatedUserData = { ...userData, Surprise_score: score };
+    // Store the updated user data in session storage
+    sessionStorage.setItem('token', JSON.stringify(updatedUserData));
+      const response = await axios.patch('http://localhost:4000/userprofile/update-score',  {id: userData._id, score: score, category :'Surprise_score'});
+      console.log('Score updated successfully:', response.data);
+    } catch (error) {
+      console.error('Error updating score:', error);
+    }
   };
 
   const handleSubmission = () => {
     calculateScore();
     setQuizCompleted(true);
     setOpenDialog(true);
+    setQuizSubmitted(true);
   };
 
   const handleTimeout = () => {
@@ -155,9 +228,11 @@ const SurpriseQuizCard = () => {
               </Typography>
             ) : null}
 
-        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-            Hint 
-        </Typography>
+          {currentQuestion < questionsData.length && (
+                      <Button variant="contained" onClick={handleHintButtonClick}>
+                        Show Hint
+                      </Button>
+          )}
 
 
         {currentQuestion < questionsData.length ? (
@@ -209,6 +284,17 @@ const SurpriseQuizCard = () => {
         <DialogActions>
           <Button onClick={handleTimeout} color="primary">
             Back to the Main Page
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={showHint} onClose={handleCloseHintDialog}>
+        <DialogTitle>Hint</DialogTitle>
+        <DialogContent>
+          {questionsData[currentQuestion]?.hint || 'No hint available.'}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseHintDialog} color="primary">
+            Close
           </Button>
         </DialogActions>
       </Dialog>
