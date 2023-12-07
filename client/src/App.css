@@ -851,3 +851,16 @@ body {
 .reset-animation{
   animation: none;
 }
+
+.user-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(183, 172, 172);
+  color: #ffffff;
+  font-size: 90px;
+  border-radius: 50%;
+  font-weight: 800;
+}

@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from 'react';
 import { Card, CardContent, Typography }  from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import ProfileImage from "./ProfileImage";
 
 
 const UserProfile = ({ title }) => {
@@ -31,11 +32,12 @@ const UserProfile = ({ title }) => {
         {/* Circular Image */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: 20 }}>
           <div style={{ width: 200, height: 200, borderRadius: '50%', overflow: 'hidden', marginRight: 20 }}>
-            <img
+            {/* <img
               src='/images/popculture.png'  // Replace with the actual source URL of your user's avatar
               alt="User Avatar"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-            />
+            /> */}
+           <ProfileImage name={`${userData.firstName} ${userData.lastName}`} />
           </div>
         </div>
 
