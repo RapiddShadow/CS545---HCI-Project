@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, Grid, CardContent, Box, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
+import { Card, CardContent, Typography, Box, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions, Grid} from '@material-ui/core';
+import QuizResult from './QuizResult';
 
 const questionsData = [
   {
@@ -85,20 +86,19 @@ const questionsData = [
   }
 ];
 
-
 const HisQuizCard = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOptions, setSelectedOptions] = useState('');
+  const [selectedOptions, setSelectedOptions] = useState(Array(questionsData.length).fill(''));
   const [isTimeOut, setTimeOut] = useState(false);
-  const [seconds, setSeconds] = useState(75);
+  const [seconds, setSeconds] = useState(60);
   const [score, setScore] = useState(0);
   const [quizCompleted, setQuizCompleted] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [userData, setUserData] = useState(null);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [animationReset, setAnimationReset] = useState(false)
-
 
   const handleHintButtonClick = () => {
     setShowHint(true);
@@ -107,6 +107,7 @@ const HisQuizCard = () => {
   const handleCloseHintDialog = () => {
     setShowHint(false);
   };
+
 
   useEffect(() => {
     // Retrieve user data from session
@@ -153,8 +154,9 @@ const HisQuizCard = () => {
   };
   
   const handleOptionChange = (event) => {
+    const questionIndex = currentQuestion;
     const newSelectedOptions = [...selectedOptions];
-    newSelectedOptions[currentQuestion] = event.target.value;
+    newSelectedOptions[questionIndex] = event.target.value;
     setSelectedOptions(newSelectedOptions, () => {
       calculateScore();
     });
@@ -180,7 +182,6 @@ const HisQuizCard = () => {
       // Now that the state has been updated, call the backend update function
       updateScoreOnBackend(userScore);
     });
-    setSelectedOptions(Array(questionsData.length).fill(''));
   };
 
   const updateScoreOnBackend = async (score) => {
@@ -200,8 +201,8 @@ const HisQuizCard = () => {
   const handleSubmission = () => {
     calculateScore();
     setQuizCompleted(true);
-    setOpenDialog(true);
     setQuizSubmitted(true);
+    setShowResult(true);
   };
 
   const handleTimeout = () => {
@@ -233,31 +234,31 @@ const HisQuizCard = () => {
                 Time Left: {seconds} seconds
               </Typography>
             ) : null}
-{currentQuestion < questionsData.length && (
+             {currentQuestion < questionsData.length && (
             <div className='progress'>
                     <div className={`progress-completed ${animationReset ? 'reset-animation':''}` } onAnimationEnd = {() => setAnimationReset(false)}></div>
                   </div>
                   )}
         {currentQuestion < questionsData.length && (
-             <>
-             <Box marginTop={3} marginBottom={3}> 
-             <Button variant="outlined" size="small" onClick={handleHintButtonClick} className="quizButton">
-               Show Hint
-             </Button>
-             </Box>
-                </>
+            <>
+            <Box marginTop={3} marginBottom={3}> 
+            <Button variant="outlined" size="small" onClick={handleHintButtonClick} className="quizButton">
+              Show Hint
+            </Button>
+            </Box>
+               </>
         )}
-
 
         {currentQuestion < questionsData.length ? (
           <>
-            <Typography variant="h4" gutterBottom>
-              {questionsData[currentQuestion].question}
+            
+            <Typography variant="h5" gutterBottom>
+                {questionsData[currentQuestion].question}
             </Typography>
             <FormControl component="fieldset">
               <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
-              <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
-              <Grid container spacing={2}>
+                <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
+                    <Grid container spacing={2}>
                           {questionsData[currentQuestion].options.map((option, index) => (
                             <Grid item xs={6} key={index}>
                               <Box className='boxCSS'>
@@ -269,17 +270,17 @@ const HisQuizCard = () => {
                               </Box>
                             </Grid>
                           ))}
-                        </Grid>
-              </RadioGroup>
+                   </Grid>
+                </RadioGroup>
               {!isTimeOut && (
-                          <>
-                            <Box marginTop={3}> 
-                              <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
-                                Next Question
-                              </Button>
-                            </Box>
-                          </>
-                      )}
+                 <>
+                 <Box marginTop={3} marginBottom={3}> 
+                   <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
+                     Next Question
+                   </Button>
+                 </Box>
+               </>
+              )}
             </FormControl>
             </>
         ) : (
@@ -295,38 +296,41 @@ const HisQuizCard = () => {
           </div>
         )}
         {isTimeOut && (
-           <>
-           <Box marginTop={3}> 
-             <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
-               Next Question
-             </Button>
-           </Box>
-         </>
+          <div>
+            <Typography variant="h6" gutterBottom>
+              Time's up!
+            </Typography>
+            <Button variant="contained" onClick={handleTimeout}>
+                Back to the Main Page
+              </Button>
+          </div>
         )}
       </CardContent>
     </Card>
-    <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>Your Score</DialogTitle>
-        <DialogContent>Congratulations! You have completed the quiz. Your score is: {score}</DialogContent>
-        <DialogActions>
-          <Button onClick={handleTimeout} color="primary">
-            Back to the Main Page
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog open={showHint} onClose={handleCloseHintDialog}>
-        <DialogTitle>Hint</DialogTitle>
-        <DialogContent>
-          {questionsData[currentQuestion]?.hint || 'No hint available.'}
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseHintDialog} color="primary">
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
+    <Dialog open={showHint} onClose={handleCloseHintDialog}>
+          <DialogTitle>Hint</DialogTitle>
+          <DialogContent>
+            {questionsData[currentQuestion]?.hint ||
+              'No hint available.'}
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={handleCloseHintDialog}
+              color="primary"
+            >
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
+        {quizCompleted && (
+          <QuizResult
+            questionsData={questionsData}
+            selectedOptions={selectedOptions}
+            score={score}
+          />
+        )}
     </div></div>
   );
-};
+  };
 
-export default HisQuizCard;
+  export default HisQuizCard;
