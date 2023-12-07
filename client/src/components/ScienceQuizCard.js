@@ -180,7 +180,7 @@ const ScienceQuizCard = () => {
     console.log(score)
     try {
 
-      const updatedUserData = { ...userData, Geo_score: score };
+      const updatedUserData = { ...userData, Sci_score: score };
     // Store the updated user data in session storage
     sessionStorage.setItem('token', JSON.stringify(updatedUserData));
       const response = await axios.patch('http://localhost:4000/userprofile/update-score',  {id: userData._id, score: score, category :'Sci_score'});
