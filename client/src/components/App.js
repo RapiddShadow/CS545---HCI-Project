@@ -20,14 +20,12 @@ import SportsQuizCard from './SportsQuizCard';
 import ScienceQuizCard from './ScienceQuizCard';
 import SurpriseQuizCard from './SurpriseQuizCard';
 
-
-
-
 function App() {
   const sessionToken = sessionStorage.getItem('token');
   if (sessionToken) {
 
   return (
+        
         <Router>
           <div className='App'>
             <header className='App-header'>

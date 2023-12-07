@@ -832,3 +832,18 @@ p {
   color: white; /* Text color */
   box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* Smaller box shadow for a blur effect */
 }
+
+body {
+  background-image: url("/images/background.jpeg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

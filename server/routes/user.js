@@ -14,7 +14,7 @@ const { ObjectId } = require("mongodb");
         throw {statusCode: 400, message: "Please provide all fields!"};
       }
     } catch(e) {
-        res.status(400).send(e.message);
+        return res.status(400).send(e.message);
     }
 
     try {
@@ -22,10 +22,9 @@ const { ObjectId } = require("mongodb");
           requestData.firstName, requestData.lastName, requestData.age, requestData.email, requestData.password, requestData.areaOfInterest, 0,0,0,0,0,0, false
         );
         if(usersList)
-          res.json(usersList);
-        
+          return res.status(200).json(usersList);    
       } catch (e) {
-        res.status(500).send(e.message);      
+        return res.status(500).send(e.message);      
       }
 
   });
@@ -35,36 +34,27 @@ const { ObjectId } = require("mongodb");
     let requestData = req.body;
     try{
       if (!requestData.email, !requestData.password) 
-        throw {statusCode: 400, message: "Please provide all fields!"};
-      // validEmail(requestData.email);
-      // validPassword(requestData.password);
+      res.status(400).send( "Please provide all fields!")
     }catch(e) {
-      res.status(400).send("Either the email or password is invalid");
-      throw badRequestError("Either the email or password is invalid");
+      return res.status(400).send("Either the email or password is invalid");
     }
-
 
     try{
     const loggedIn = await userData.checkUser(requestData.email, requestData.password);
-    if(loggedIn){     
-        return res.json(loggedIn);
-    }  
-  }
-  catch(e){
+    if(loggedIn)    
+        return res.status(200).json(loggedIn); 
+    } catch(e){
+    console.log(e)
     res.status(400).send("Either the email or password is incorrect");
-  }
-    
+    }
   });
 
-  router
-  .route("/userprofile")
-  .get(async(req,res) => {
+  router.route("/userprofile") .get(async(req,res) => {
     let requestData = req.body;
-    try{
-      
+    try{ 
       const user = await userData.getUserProfile(requestData.email)
       return res.status(200).json(user)
-    }catch(e){
+    } catch(e){
       res.status(500).send("Internal Server Error")
     }
   })
@@ -94,7 +84,7 @@ const { ObjectId } = require("mongodb");
             return res.json(updatedUser)
             //return res.json("Edit user successful")
     }catch(e){
-      res.status(400).send("Edit user failed")
+      return res.status(400).send("Edit user failed")
     }
   });
 
@@ -106,7 +96,7 @@ const { ObjectId } = require("mongodb");
       // console.log(user)
       return res.status(200).json(user)
     }catch(e){
-      res.status(500).send("Internal Server Error")
+      return res.status(500).send("Internal Server Error")
     }
   })
 
