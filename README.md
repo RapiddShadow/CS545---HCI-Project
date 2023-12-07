@@ -1,4 +1,4 @@
-# CS554FinalProject - TriviaPulse
+# CS545 FinalProject - TriviaPulse
 
 ## About TriviaPulse
 
