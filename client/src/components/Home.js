@@ -9,8 +9,8 @@ function Home({ title }) {
   }, [title]);
 
   return(
-  <div className="row justify-content-center" id='home'  >
-      <div className="col-md-10" style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+  <div className="row justify-content-center" >
+      <div className="col-md-10" style={{ height: '100vh',display: 'flex', justifyContent: 'center', alignItems: 'center' , backgroundColor: "transparent"}}>
                   <div className="d-flex">
                       <div className="col-md-6 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
