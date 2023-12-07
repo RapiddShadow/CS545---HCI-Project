@@ -20,7 +20,7 @@ const QuizCategories = ({ title }) => {
           style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
         />
         <CardContent>
-          <Typography variant="h5" component="div">
+          <Typography variant="h5" component="div" style={{color: "black"}}>
             {card.title}
           </Typography>
         </CardContent>
