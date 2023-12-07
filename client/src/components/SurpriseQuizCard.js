@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
+import { Card, CardContent, Typography, Box, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions, Grid} from '@material-ui/core';
 
 const questionsData = [
   {
@@ -188,8 +188,7 @@ const SurpriseQuizCard = () => {
     try {
 
       const updatedUserData = { ...userData, Surprise_score: score };
-    // Store the updated user data in session storage
-    sessionStorage.setItem('token', JSON.stringify(updatedUserData));
+      sessionStorage.setItem('token', JSON.stringify(updatedUserData));
       const response = await axios.patch('http://localhost:4000/userprofile/update-score',  {id: userData._id, score: score, category :'Surprise_score'});
       console.log('Score updated successfully:', response.data);
     } catch (error) {
@@ -239,28 +238,46 @@ const SurpriseQuizCard = () => {
                   </div>
                   )}
           {currentQuestion < questionsData.length && (
-                      <Button variant="contained" onClick={handleHintButtonClick}>
-                        Show Hint
-                      </Button>
+            <>
+            <Box marginTop={3} marginBottom={3}> 
+            <Button variant="outlined" size="small" onClick={handleHintButtonClick} className="quizButton">
+              Show Hint
+            </Button>
+            </Box>
+                </>
           )}
 
 
         {currentQuestion < questionsData.length ? (
           <>
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h5" gutterBottom>
               {questionsData[currentQuestion].question}
             </Typography>
             <FormControl component="fieldset">
               <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
               <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
-                {questionsData[currentQuestion].options.map((option, index) => (
-                <FormControlLabel key={index} value={option} control={<Radio style={{ color: 'white' }} />}  label={option} />
-                ))}
+              <Grid container spacing={2}>
+                          {questionsData[currentQuestion].options.map((option, index) => (
+                            <Grid item xs={6} key={index}>
+                              <Box className='boxCSS'>
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio style={{ color: 'rgba(255, 255, 255, 0.2)' }} />}
+                                  label={option}
+                                />
+                              </Box>
+                            </Grid>
+                          ))}
+                   </Grid>
               </RadioGroup>
               {!isTimeOut && (
-                <Button variant="contained" onClick={handleNextQuestion}>
-                  Next Question
-                </Button>
+                <>
+                <Box marginTop={3} marginBottom={3}> 
+                  <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
+                    Next Question
+                  </Button>
+                </Box>
+              </>
               )}
             </FormControl>
             </>

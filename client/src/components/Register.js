@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 
-const SignUp = ({ title }) => {
+const Register = ({ title }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -79,7 +79,7 @@ const SignUp = ({ title }) => {
     <div className="col-md-6 offset-3 align-items-center ">
       <br></br>
       <div className="wsk-cp-matches" >
-      <h5>Sign Up</h5>
+      <h5>Register</h5>
         <hr style={{ background: "#D3D3D3",height: "2px", border: "none", opacity:0.5}}/>
         <br></br>
         <form onSubmit={handleSubmit}>
@@ -174,7 +174,7 @@ const SignUp = ({ title }) => {
 
           <br></br>
           <button type="submit" className="round-button">
-            Sign Up
+            Register
           </button>
           <br></br><br></br>
         </form>
@@ -184,4 +184,4 @@ const SignUp = ({ title }) => {
   );
 };
 
-export default SignUp
+export default Register
