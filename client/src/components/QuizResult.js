@@ -27,7 +27,7 @@ const QuizResult = ({ questionsData, selectedOptions, score }) => {
         </TableBody>
       </Table>
       <p style={{ color: 'black', fontWeight: 'bold' }}>Total Score: {score}</p>
-      <Button variant="outlined" size="small" onClick={handleMain} className="quizButton">
+      <Button variant="outlined" size="small" onClick={handleMain} style={{ backgroundColor: 'navy', color: 'white' }}>
                 Back to the Main Page
               </Button>
       <br></br>
