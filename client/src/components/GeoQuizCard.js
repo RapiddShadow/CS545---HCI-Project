@@ -1,81 +1,89 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import axios from 'axios';
 import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
 
 const questionsData = [
-    {
-        "category": "Geography",
-        "question": "Which continent is home to the Sahara Desert?",
-        "options": ["Asia", "Africa", "South America", "Europe"],
-        "correct_answer": "Africa",
-        "difficulty": 1
-    },
-    {
-        "category": "Geography",
-        "question": "What is the capital city of France?",
-        "options": ["Berlin", "Madrid", "Paris", "Rome"],
-        "correct_answer": "Paris",
-        "difficulty": 2
-    },
-    {
-        "category": "Geography",
-        "question": "Which river is the longest in the world?",
-        "options": ["Paris", "Amazon", "Mississippi", "Yangtze"],
-        "correct_answer": "Amazon",
-        "difficulty": 3
-    },
-    {
-        "category": "Geography",
-        "question": "Which country is known as the Land of the Rising Sun?",
-        "options": ["China", "Japan", "India", "South Korea"],
-        "correct_answer": "Japan",
-        "difficulty": 4
-    },
-    {
-        "category": "Geography",
-        "question": "In which country would you find the ancient city of Machu Picchu?",
-        "options": ["Peru", "Mexico", "Egypt", "Greece"],
-        "correct_answer": "Peru",
-        "difficulty": 5
-    },
-    {
-        "category": "Geography",
-        "question": "What is the highest mountain peak in North America?",
-        "options": ["Kilimanjaro", "Everest", "Denali", "Fuji"],
-        "correct_answer": "Denali",
-        "difficulty": 6
-    },
-    {
-        "category": "Geography",
-        "question": "Which African country is the most populous?",
-        "options": ["Nigeria", "Egypt", "South Africa", "Ethiopia"],
-        "correct_answer": "Nigeria",
-        "difficulty": 7
-    },
-    {
-        "category": "Geography",
-        "question": "What is the largest ocean on Earth?",
-        "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
-        "correct_answer": "Pacific",
-        "difficulty": 8
-    },
-    {
-        "category": "Geography",
-        "question": "Which two countries share the longest international border in the world?",
-        "options": ["Russia and China", "Canada and the United States", "India and Pakistan", "Brazil and Argentina"],
-        "correct_answer": "Canada and the United States",
-        "difficulty": 9
-    },
-    {
-        "category": "Geography",
-        "question": "Which city stands at the crossroads of Europe and Asia and is known as the Eurasian city?",
-        "options": ["Istanbul", "Moscow", "Dubai", "Tehran"],
-        "correct_answer": "Istanbul",
-        "difficulty": 10
-    }
+  {
+      "category": "Geography",
+      "question": "Which continent is home to the Sahara Desert?",
+      "options": ["Asia", "Africa", "South America", "Europe"],
+      "correct_answer": "Africa",
+      "difficulty": 1,
+      "hint": "Think of the vast desert that covers much of the northern part of this continent."
+  },
+  {
+      "category": "Geography",
+      "question": "What is the capital city of France?",
+      "options": ["Berlin", "Madrid", "Paris", "Rome"],
+      "correct_answer": "Paris",
+      "difficulty": 2,
+      "hint": "The city known for its romantic ambiance, iconic Eiffel Tower, and delicious pastries."
+  },
+  {
+      "category": "Geography",
+      "question": "Which river is the longest in the world?",
+      "options": ["Paris", "Amazon", "Mississippi", "Yangtze"],
+      "correct_answer": "Amazon",
+      "difficulty": 3,
+      "hint": "This river flows through a rainforest and is a primary waterway in South America."
+  },
+  {
+      "category": "Geography",
+      "question": "Which country is known as the Land of the Rising Sun?",
+      "options": ["China", "Japan", "India", "South Korea"],
+      "correct_answer": "Japan",
+      "difficulty": 4,
+      "hint": "Look to the east, where the sun rises, to find this island nation."
+  },
+  {
+      "category": "Geography",
+      "question": "In which country would you find the ancient city of Machu Picchu?",
+      "options": ["Peru", "Mexico", "Egypt", "Greece"],
+      "correct_answer": "Peru",
+      "difficulty": 5,
+      "hint": "Explore the Andes mountains to discover the ruins of this ancient Incan city."
+  },
+  {
+      "category": "Geography",
+      "question": "What is the highest mountain peak in North America?",
+      "options": ["Kilimanjaro", "Everest", "Denali", "Fuji"],
+      "correct_answer": "Denali",
+      "difficulty": 6,
+      "hint": "This towering peak can be found in the state of Alaska, USA."
+  },
+  {
+      "category": "Geography",
+      "question": "Which African country is the most populous?",
+      "options": ["Nigeria", "Egypt", "South Africa", "Ethiopia"],
+      "correct_answer": "Nigeria",
+      "difficulty": 7,
+      "hint": "This West African nation has a large and diverse population."
+  },
+  {
+      "category": "Geography",
+      "question": "What is the largest ocean on Earth?",
+      "options": ["Atlantic", "Indian", "Pacific", "Arctic"],
+      "correct_answer": "Pacific",
+      "difficulty": 8,
+      "hint": "Think of the vast expanse of water covering much of the Earth's surface to the west of the Americas and east of Asia."
+  },
+  {
+      "category": "Geography",
+      "question": "Which two countries share the longest international border in the world?",
+      "options": ["Russia and China", "Canada and the United States", "India and Pakistan", "Brazil and Argentina"],
+      "correct_answer": "Canada and the United States",
+      "difficulty": 9,
+      "hint": "These North American neighbors share a long boundary, including natural wonders like Niagara Falls."
+  },
+  {
+      "category": "Geography",
+      "question": "Which city stands at the crossroads of Europe and Asia and is known as the Eurasian city?",
+      "options": ["Istanbul", "Moscow", "Dubai", "Tehran"],
+      "correct_answer": "Istanbul",
+      "difficulty": 10,
+      "hint": "This city, formerly known as Byzantium and later as Constantinople, is a transcontinental city straddling both Europe and Asia."
+  }
 ];
-
 
 const GeoQuizCard = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -87,6 +95,15 @@ const GeoQuizCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [userData, setUserData] = useState(null);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
+  const handleHintButtonClick = () => {
+    setShowHint(true);
+  };
+
+  const handleCloseHintDialog = () => {
+    setShowHint(false);
+  };
 
   useEffect(() => {
     // Retrieve user data from session
@@ -102,6 +119,10 @@ const GeoQuizCard = () => {
   }, []);
 
   useEffect(() => {
+    resetTimer();
+  }, [currentQuestion]);
+
+  useEffect(() => {
     if (score > 0) {
       // Now that the state has been updated, call the backend update function
       updateScoreOnBackend(score);
@@ -110,15 +131,24 @@ const GeoQuizCard = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds - 1);
+      if (!quizSubmitted) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
     }, 900);
+
     if (seconds === 0) {
       clearInterval(interval);
       setTimeOut(true);
     }
-    return () => clearInterval(interval);
-  }, [seconds]);
 
+    return () => clearInterval(interval);
+  }, [seconds, quizSubmitted]);
+
+  const resetTimer = () => {
+    setSeconds(60);
+    setTimeOut(false);
+  };
+  
   const handleOptionChange = (event) => {
     const newSelectedOptions = [...selectedOptions];
     newSelectedOptions[currentQuestion] = event.target.value;
@@ -138,12 +168,11 @@ const GeoQuizCard = () => {
         userScore += 10;
       }
     });
-    //setScore(userScore);
+    // setScore(userScore);
     setScore(userScore, () => {
       // Now that the state has been updated, call the backend update function
       updateScoreOnBackend(userScore);
     });
-    
     setSelectedOptions(Array(questionsData.length).fill(''));
   };
 
@@ -198,10 +227,11 @@ const GeoQuizCard = () => {
               </Typography>
             ) : null}
 
-        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-            Hint 
-        </Typography>
-
+        {currentQuestion < questionsData.length && (
+            <Button variant="contained" onClick={handleHintButtonClick}>
+              Show Hint
+            </Button>
+        )}
 
         {currentQuestion < questionsData.length ? (
           <>
@@ -252,6 +282,17 @@ const GeoQuizCard = () => {
         <DialogActions>
           <Button onClick={handleTimeout} color="primary">
             Back to the Main Page
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={showHint} onClose={handleCloseHintDialog}>
+        <DialogTitle>Hint</DialogTitle>
+        <DialogContent>
+          {questionsData[currentQuestion]?.hint || 'No hint available.'}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseHintDialog} color="primary">
+            Close
           </Button>
         </DialogActions>
       </Dialog>

@@ -3,76 +3,86 @@ import axios from 'axios';
 import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
 
 const questionsData = [
-    {
-        "category": "Sports",
-        "question": "In which sport do players try to score goals by hitting a puck into the opposing team's net?",
-        "options": ["Basketball", "Soccer", "Ice Hockey", "Tennis"],
-        "correct_answer": "Ice Hockey",
-        "difficulty": 1
-    },
-    {
-        "category": "Sports",
-        "question": "How many players are there on a standard soccer team, including the goalkeeper?",
-        "options": ["9", "11", "7", "6"],
-        "correct_answer": "11",
-        "difficulty": 2
-    },
-    {
-        "category": "Sports",
-        "question": "What is the highest possible score in a single frame of bowling?",
-        "options": ["100", "200", "300", "400"],
-        "correct_answer": "300",
-        "difficulty": 3
-    },
-    {
-        "category": "Sports",
-        "question": "Which country won the FIFA World Cup in 2018?",
-        "options": ["Brazil", "Germany", "France", "Italy"],
-        "correct_answer": "France",
-        "difficulty": 4
-    },
-    {
-        "category": "Sports",
-        "question": "Which tennis player has won the most Grand Slam singles titles in history?",
-        "options": ["Serena Williams", "Rafael Nadal", "Roger Federer", "Novak Djokovic"],
-        "correct_answer": "Novak Djokovic",
-        "difficulty": 5
-    },
-    {
-        "category": "Sports",
-        "question": "What is the object of the game in curling?",
-        "options": ["To score goals", "To knock down all the pins", "To slide stones on ice towards a target", "To shoot a puck into the opponent's net"],
-        "correct_answer": "To slide stones on ice towards a target",
-        "difficulty": 6
-    },
-    {
-        "category": "Sports",
-        "question": "Which American sprinter famously won four gold medals at the 1936 Berlin Olympics?",
-        "options": ["Jesse Owens", "Usain Bolt", "Carl Lewis", "Michael Johnson"],
-        "correct_answer": "Jesse Owens",
-        "difficulty": 7
-    },
-    {
-        "category": "Sports",
-        "question": "Who holds the record for the most career home runs in Major League Baseball?",
-        "options": ["Babe Ruth", "Barry Bonds", "Hank Aaron", "Willie Mays"],
-        "correct_answer": "Barry Bonds",
-        "difficulty": 8
-    },
-    {
-        "category": "Sports",
-        "question": "In which sport can you perform a 'corkscrew' or '720' as part of a routine?",
-        "options": ["Snowboarding", "Figure skating", "Gymnastics", "Diving"],
-        "correct_answer": "Snowboarding",
-        "difficulty": 9
-    },
-    {
-        "category": "Sports",
-        "question": "Which country hosted the 2016 Summer Olympics?",
-        "options": ["Australia", "Brazil", "Canada", "South Africa"],
-        "correct_answer": "Brazil",
-        "difficulty": 10
-    }
+  {
+      "category": "Sports",
+      "question": "In which sport do players try to score goals by hitting a puck into the opposing team's net?",
+      "options": ["Basketball", "Soccer", "Ice Hockey", "Tennis"],
+      "correct_answer": "Ice Hockey",
+      "difficulty": 1,
+      "hint": "This sport is played on an ice rink, and the players use sticks to hit a small object into the opponent's net."
+  },
+  {
+      "category": "Sports",
+      "question": "How many players are there on a standard soccer team, including the goalkeeper?",
+      "options": ["9", "11", "7", "6"],
+      "correct_answer": "11",
+      "difficulty": 2,
+      "hint": "A standard soccer team has the same number of players as the traditional number of players on a cricket team."
+  },
+  {
+      "category": "Sports",
+      "question": "What is the highest possible score in a single frame of bowling?",
+      "options": ["100", "200", "300", "400"],
+      "correct_answer": "300",
+      "difficulty": 3,
+      "hint": "Achieving this perfect score requires knocking down all ten pins with each throw in a frame."
+  },
+  {
+      "category": "Sports",
+      "question": "Which country won the FIFA World Cup in 2018?",
+      "options": ["Brazil", "Germany", "France", "Italy"],
+      "correct_answer": "France",
+      "difficulty": 4,
+      "hint": "The host nation of this World Cup celebrated victory, lifting the trophy for the second time in their history."
+  },
+  {
+      "category": "Sports",
+      "question": "Which tennis player has won the most Grand Slam singles titles in history?",
+      "options": ["Serena Williams", "Rafael Nadal", "Roger Federer", "Novak Djokovic"],
+      "correct_answer": "Novak Djokovic",
+      "difficulty": 5,
+      "hint": "This player hails from Serbia and has been a dominant force in men's tennis in recent years."
+  },
+  {
+      "category": "Sports",
+      "question": "What is the object of the game in curling?",
+      "options": ["To score goals", "To knock down all the pins", "To slide stones on ice towards a target", "To shoot a puck into the opponent's net"],
+      "correct_answer": "To slide stones on ice towards a target",
+      "difficulty": 6,
+      "hint": "This winter sport involves strategically sliding stones on ice towards a circular target area."
+  },
+  {
+      "category": "Sports",
+      "question": "Which American sprinter famously won four gold medals at the 1936 Berlin Olympics?",
+      "options": ["Jesse Owens", "Usain Bolt", "Carl Lewis", "Michael Johnson"],
+      "correct_answer": "Jesse Owens",
+      "difficulty": 7,
+      "hint": "Despite facing adversity, this athlete's achievements at the 1936 Olympics made history and challenged racial prejudices."
+  },
+  {
+      "category": "Sports",
+      "question": "Who holds the record for the most career home runs in Major League Baseball?",
+      "options": ["Babe Ruth", "Barry Bonds", "Hank Aaron", "Willie Mays"],
+      "correct_answer": "Barry Bonds",
+      "difficulty": 8,
+      "hint": "This former MLB player holds the record for the most home runs in a career, surpassing the legendary Babe Ruth."
+  },
+  {
+      "category": "Sports",
+      "question": "In which sport can you perform a 'corkscrew' or '720' as part of a routine?",
+      "options": ["Snowboarding", "Figure skating", "Gymnastics", "Diving"],
+      "correct_answer": "Snowboarding",
+      "difficulty": 9,
+      "hint": "This sport involves descending down a snow-covered slope on a board, and tricks like 'corkscrew' are part of the excitement."
+  },
+  {
+      "category": "Sports",
+      "question": "Which country hosted the 2016 Summer Olympics?",
+      "options": ["Australia", "Brazil", "Canada", "South Africa"],
+      "correct_answer": "Brazil",
+      "difficulty": 10,
+      "hint": "The vibrant city of Rio de Janeiro in this South American country was the host for the 2016 Summer Olympics."
+  }
 ];
 
 
@@ -86,6 +96,15 @@ const SportsQuizCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const [userData, setUserData] = useState(null);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
+  const [showHint, setShowHint] = useState(false);
+
+  const handleHintButtonClick = () => {
+    setShowHint(true);
+  };
+
+  const handleCloseHintDialog = () => {
+    setShowHint(false);
+  };
 
   useEffect(() => {
     // Retrieve user data from session
@@ -101,6 +120,10 @@ const SportsQuizCard = () => {
   }, []);
 
   useEffect(() => {
+    resetTimer();
+  }, [currentQuestion]);
+
+  useEffect(() => {
     if (score > 0) {
       // Now that the state has been updated, call the backend update function
       updateScoreOnBackend(score);
@@ -109,15 +132,24 @@ const SportsQuizCard = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds((prevSeconds) => prevSeconds - 1);
+      if (!quizSubmitted) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
     }, 900);
+
     if (seconds === 0) {
       clearInterval(interval);
       setTimeOut(true);
     }
-    return () => clearInterval(interval);
-  }, [seconds]);
 
+    return () => clearInterval(interval);
+  }, [seconds, quizSubmitted]);
+
+  const resetTimer = () => {
+    setSeconds(60);
+    setTimeOut(false);
+  };
+  
   const handleOptionChange = (event) => {
     const newSelectedOptions = [...selectedOptions];
     newSelectedOptions[currentQuestion] = event.target.value;
@@ -145,7 +177,6 @@ const SportsQuizCard = () => {
     setSelectedOptions(Array(questionsData.length).fill(''));
   };
 
-
   const updateScoreOnBackend = async (score) => {
     console.log(score)
     try {
@@ -164,6 +195,7 @@ const SportsQuizCard = () => {
     calculateScore();
     setQuizCompleted(true);
     setOpenDialog(true);
+    setQuizSubmitted(true);
   };
 
   const handleTimeout = () => {
@@ -196,9 +228,11 @@ const SportsQuizCard = () => {
               </Typography>
             ) : null}
 
-        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
-            Hint 
-        </Typography>
+        {currentQuestion < questionsData.length && (
+                      <Button variant="contained" onClick={handleHintButtonClick}>
+                        Show Hint
+                      </Button>
+          )}
 
 
         {currentQuestion < questionsData.length ? (
@@ -250,6 +284,17 @@ const SportsQuizCard = () => {
         <DialogActions>
           <Button onClick={handleTimeout} color="primary">
             Back to the Main Page
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={showHint} onClose={handleCloseHintDialog}>
+        <DialogTitle>Hint</DialogTitle>
+        <DialogContent>
+          {questionsData[currentQuestion]?.hint || 'No hint available.'}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseHintDialog} color="primary">
+            Close
           </Button>
         </DialogActions>
       </Dialog>
