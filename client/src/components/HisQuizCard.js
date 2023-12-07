@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Card, CardContent, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
+import { Card, Grid, CardContent, Box, Typography, Button, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel, Dialog, DialogTitle, DialogContent, DialogActions} from '@material-ui/core';
 
 const questionsData = [
   {
@@ -229,9 +229,13 @@ const HisQuizCard = () => {
             ) : null}
 
         {currentQuestion < questionsData.length && (
-            <Button variant="contained" onClick={handleHintButtonClick}>
-              Show Hint
-            </Button>
+             <>
+             <Box marginTop={3} marginBottom={3}> 
+             <Button variant="outlined" size="small" onClick={handleHintButtonClick} className="quizButton">
+               Show Hint
+             </Button>
+             </Box>
+                </>
         )}
 
 
@@ -243,15 +247,29 @@ const HisQuizCard = () => {
             <FormControl component="fieldset">
               <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
               <RadioGroup value={selectedOptions[currentQuestion]} onChange={handleOptionChange}>
-                {questionsData[currentQuestion].options.map((option, index) => (
-                <FormControlLabel key={index} value={option} control={<Radio style={{ color: 'white' }} />}  label={option} />
-                ))}
+              <Grid container spacing={2}>
+                          {questionsData[currentQuestion].options.map((option, index) => (
+                            <Grid item xs={6} key={index}>
+                              <Box className='boxCSS'>
+                                <FormControlLabel
+                                  value={option}
+                                  control={<Radio style={{ color: 'rgba(255, 255, 255, 0.2)' }} />}
+                                  label={option}
+                                />
+                              </Box>
+                            </Grid>
+                          ))}
+                        </Grid>
               </RadioGroup>
               {!isTimeOut && (
-                <Button variant="contained" onClick={handleNextQuestion}>
-                  Next Question
-                </Button>
-              )}
+                          <>
+                            <Box marginTop={3}> 
+                              <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
+                                Next Question
+                              </Button>
+                            </Box>
+                          </>
+                      )}
             </FormControl>
             </>
         ) : (
@@ -267,14 +285,13 @@ const HisQuizCard = () => {
           </div>
         )}
         {isTimeOut && (
-          <div>
-            <Typography variant="h6" gutterBottom>
-              Time's up!
-            </Typography>
-            <Button variant="contained" onClick={handleTimeout}>
-                Back to the Main Page
-              </Button>
-          </div>
+           <>
+           <Box marginTop={3}> 
+             <Button variant="outlined" size="small" onClick={handleNextQuestion} className="quizButton" >
+               Next Question
+             </Button>
+           </Box>
+         </>
         )}
       </CardContent>
     </Card>

@@ -11,17 +11,23 @@ const QuizCategories = ({ title }) => {
   }, [title]);
 
   const buildCard = (card) => (
-    <Card key={card.title}>
+    <Card key={card.title} style={{ width: '100%', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.2)' }}>
       <NavLink to={card.quizLink}>
-      <CardMedia component="img" alt={card.title} height="350" image={card.imageUrl} style={{ width: `${card.imageWidth}px`, height: `${card.imageHeight}px`, objectFit: 'cover' }}/>
-      <CardContent>
-        <Typography variant="h5" component="div">
-          {card.title}
-        </Typography>
-      </CardContent>
+        <CardMedia
+          component="img"
+          alt={card.title}
+          image={card.imageUrl}
+          style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+        />
+        <CardContent>
+          <Typography variant="h5" component="div">
+            {card.title}
+          </Typography>
+        </CardContent>
       </NavLink>
     </Card>
   );
+  
 
   const cardData = [
     { title: 'Pop Culture', imageUrl: "/images/popculture.png", quizLink: '/pop-quiz'},
@@ -36,16 +42,20 @@ const QuizCategories = ({ title }) => {
 	const [error, setError] = useState(false);
 
   return (
-    <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' , width: '100wh' }}>
-    <Grid container spacing={5}>
-      {cardData.map((card) => (
-        <Grid item xs={12} sm={4} md={4} key={card.title}>
-          {buildCard(card)}
+    <>
+      <div style={{ marginTop: '20px' }} /> {/* Add space above the Container */}
+      <Container className style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Grid container spacing={5}>
+          {cardData.map((card) => (
+            <Grid item xs={12} sm={4} md={4} key={card.title}>
+              {buildCard(card)}
+            </Grid>
+          ))}
         </Grid>
-      ))}
-    </Grid>
-  </Container>
+      </Container>
+    </>
   );
+  
 };
 
 export default QuizCategories;
