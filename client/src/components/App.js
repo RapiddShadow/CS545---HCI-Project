@@ -32,7 +32,7 @@ function App() {
               <Navbar collapseOnSelect expand="lg" className='bg' >
                 <Container>
                   <Navbar.Brand>
-                    <Link to="/"><span className="navbar-brand">Trivia Website</span></Link>
+                    <Link to="/"><span className="navbar-brand">TriviaPulse</span></Link>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                   <Navbar.Collapse id="responsive-navbar-nav">
@@ -80,7 +80,7 @@ else{
 
                   <Navbar.Brand>
                     <Link to="/">
-                      <span className="navbar-brand">Trivia Website</span>
+                      <span className="navbar-brand">TriviaPulse</span>
                     </Link>
                   </Navbar.Brand>
                   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
