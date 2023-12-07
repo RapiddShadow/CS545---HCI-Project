@@ -1,11 +1,11 @@
-# CS545 FinalProject - TriviaPulse
+# CS545 FinalProject - Trivia Pulse
 
-## About TriviaPulse
+## About Trivia Pulse
 
 Explore the world of knowledge and fun with our trivia website! This platform has been meticulously crafted to provide users with an engaging and intellectually stimulating experience. Whether you're a quiz enthusiast or just looking for a unique way to challenge yourself, our trivia website offers a diverse range of categories and features that cater to all levels of curiosity. From a user-friendly landing page to dynamic quiz gameplay with timed questions and helpful hints, our platform aims to create an immersive and enjoyable environment. This README is your guide to getting started, making the most of our features, and enjoying the exciting journey of learning and entertainment that our trivia website has to offer. Let's dive in and start the quiz adventure!
 
 
-## How to install and run TriviaPulse
+## How to install and run Trivia Pulse
 
 - Fork the Project / Download the source code as a zip file
 - Navigate to the project root directory
@@ -25,7 +25,7 @@ Explore the world of knowledge and fun with our trivia website! This platform ha
 - Navigate to localhost:3000
 - Enjoy!!!
 
-## How to use TriviaPulse
+## How to use Trivia Pulse
 
 - Access the landingpage/homepage (localhost: 3000)
 - You'll be able to see options for login and register and when you click on Quiz (from Navbar) you can see all quiz categories but to play the trivia game, you need to create an account or login if you already have an account.
