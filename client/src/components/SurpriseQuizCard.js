@@ -289,7 +289,7 @@ const SurpriseQuizCard = () => {
               Quiz Completed!
             </Typography>
             {!quizCompleted && (
-              <Button variant="contained" onClick={handleSubmission}>
+              <Button variant="outlined" size="small" onClick={handleSubmission} className="quizButton">
                 Submit
               </Button>
             )}
@@ -300,7 +300,7 @@ const SurpriseQuizCard = () => {
             <Typography variant="h6" gutterBottom>
               Time's up!
             </Typography>
-            <Button variant="contained" onClick={handleTimeout}>
+            <Button variant="contained" size="small" onClick={handleTimeout} className="quizButton">
                 Back to the Main Page
               </Button>
           </div>
