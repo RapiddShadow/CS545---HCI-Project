@@ -14,13 +14,15 @@ function Home({ title }) {
                   <div className="d-flex">
                       <div className="col-md-6 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
+                        <Link to="/signin">
                           <Card className="card-with-border">
                             <Card.Img variant="top" src="/images/login.png" style={{ objectFit: 'cover' }}/>
-                            <Link to="/signin">
+                            
                             <button className="round-button">Login</button>
-                            </Link>
+                            
                             <br></br>
                           </Card>
+                          </Link>
                         </div>
                       </div>
 
@@ -28,13 +30,15 @@ function Home({ title }) {
 
                       <div className="col-md-5 mx-auto"> {/* Use mx-auto to center the column */}
                         <div className="d-block" style={{ position: 'relative' }}>
+                        <Link to="/register">
                           <Card className="card-with-border">
                           <Card.Img variant="top" src="/images/signup.png" style={{ objectFit: 'cover' }}/>
-                            <Link to="/register">
+                            
                             <button className="round-button">Register</button>
-                            </Link>
+                            
                             <br></br>
                           </Card>
+                          </Link>
                         </div>
                       </div>
                   </div>
