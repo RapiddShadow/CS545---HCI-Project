@@ -803,7 +803,7 @@ p {
 .progress-completed{
   height: 100%;
   background:linear-gradient(to right, red, yellow, green);
-  animation: time 60s linear ;
+  animation: time 55.4s linear ;
 
 }
 
