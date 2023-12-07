@@ -97,6 +97,8 @@ const HisQuizCard = () => {
   const [userData, setUserData] = useState(null);
   const [quizSubmitted, setQuizSubmitted] = useState(false);
   const [showHint, setShowHint] = useState(false);
+  const [animationReset, setAnimationReset] = useState(false)
+
 
   const handleHintButtonClick = () => {
     setShowHint(true);
@@ -160,6 +162,10 @@ const HisQuizCard = () => {
 
   const handleNextQuestion = () => {
     setCurrentQuestion((prev) => prev + 1);
+    setAnimationReset(true)
+    setTimeout(() => {
+      setAnimationReset(false)
+    }, 100);
   };
 
   const calculateScore = () => {
@@ -227,7 +233,11 @@ const HisQuizCard = () => {
                 Time Left: {seconds} seconds
               </Typography>
             ) : null}
-
+{currentQuestion < questionsData.length && (
+            <div className='progress'>
+                    <div className={`progress-completed ${animationReset ? 'reset-animation':''}` } onAnimationEnd = {() => setAnimationReset(false)}></div>
+                  </div>
+                  )}
         {currentQuestion < questionsData.length && (
              <>
              <Box marginTop={3} marginBottom={3}> 
