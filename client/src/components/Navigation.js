@@ -78,8 +78,14 @@ const Navigation = () => {
         <NavLink className='nav-links' to='/'>
           Home
         </NavLink>
+        <NavLink className='nav-links' to='/categories'>
+          Quiz
+        </NavLink>
         <NavLink className='nav-links' to='/signout' onClick={handleSignOut}>
           SignOut
+        </NavLink>
+        <NavLink className='nav-links' to='/user-profile'>
+          My Profile
         </NavLink>
       </nav>
     );
@@ -89,15 +95,9 @@ const Navigation = () => {
         <NavLink className='nav-links' to='/'>
           Home
         </NavLink>
-        <NavLink className='nav-links' to='/signin'>
-          LogIn
-        </NavLink>
-        <NavLink className='nav-links' to='/register'>
-          Register
-        </NavLink>
-        <Link className='nav-links' to='/categories'>
+        <NavLink className='nav-links' to='/categories'>
           Quiz
-        </Link>
+        </NavLink>
       </nav>
     );
   }

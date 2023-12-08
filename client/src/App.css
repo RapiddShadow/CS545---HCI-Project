@@ -432,11 +432,11 @@ body {
 }
 
 .wsk-cp-matches {
-  background: #1c1a1a;
+  background: navy;
   color: white;
-  padding: 15px;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 5px;
+  border-radius: 2px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.24);
   position: relative;
   margin: 20px auto;
 }
@@ -733,21 +733,18 @@ a.buy-btn:focus {
   line-height: 20px;
 }
 
-
-
-.searchbar {
-  color: white;
-}
-
-.card-with-borders {
-  width: 18rem;
+.card-with-border {
+  background: navy;
+  width: 27rem;
   margin: 20px;
   padding: 10px; /* Add padding to create an inner border effect */
-  border: 2px solid #680a0a; /* Outer border */
+  border: 1px solid ;
+  border-color: rgb(0, 36, 128); /* Outer border */
   border-radius: 10px; /* Rounded corners for the outer border */
   box-shadow: 
-    inset 0 0 0 5px #f0f0f0, /* Inner border (5px thick) */
-    0 0 0 10px #680a0a; /* Outer border (10px thick) */
+    inset 0 0 0 5px #ffffff, /* Inner border (5px thick) */
+    0 0 0 10px navy; /* Outer border (10px thick) */
+  background-color: navy; /* Set the background color to navy */
 }
 
 
@@ -792,4 +789,78 @@ h1 {
 
 p {
   color: #721c24; /* Dark red color for the paragraph */
+}
+
+
+.progress{
+  width: 100%;
+  height: 50px;
+  position: relative;
+  background: white;
+  overflow: hidden;
+  margin: 5px;
+}
+.progress-completed{
+  height: 100%;
+  background:linear-gradient(to right, red, yellow, green);
+  animation: time 55.4s linear ;
+
+}
+
+@keyframes time{
+  0%{width: 100%;}
+  100%{width: 0;}
+}
+
+.quizButton {
+  color: white !important;
+  border: 1px solid black;
+  border-radius: 40px; 
+  padding: 0.5rem; 
+  margin: 1rem; /* Smaller margin for gap */
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+  margin: 8px;
+}
+
+.boxCSS {
+  border: 1px solid black;
+  border-radius: 40px; 
+  padding: 0.5rem; 
+  margin: 1rem; /* Smaller margin for gap */
+  background: rgba(255, 255, 255, 0.2); /* White background with blur effect */
+  color: white; /* Text color */
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5); /* Smaller box shadow for a blur effect */
+}
+
+body {
+  background-image: url("/images/background.jpeg");
+  background-size: cover;
+  background-repeat: repeat-y;
+  min-height: 100vh;
+  margin: 0;
+}
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.reset-animation{
+  animation: none;
+}
+
+.user-profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+  background-color: rgb(183, 172, 172);
+  color: #ffffff;
+  font-size: 90px;
+  border-radius: 50%;
+  font-weight: 800;
 }

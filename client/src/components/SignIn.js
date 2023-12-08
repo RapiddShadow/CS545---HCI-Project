@@ -16,6 +16,7 @@ const SignIn = ({ title }) => {
 
     // Check if the user is already logged in
     const sessionToken = sessionStorage.getItem('token');
+    console.log(sessionToken)
     if (sessionToken) {
       Swal.fire({
         icon: 'info',
@@ -59,18 +60,25 @@ const SignIn = ({ title }) => {
       console.log(token);
 
       // Store the token in session storage
-      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', JSON.stringify(token));
+      console.log(sessionStorage.getItem('token'))
 
       console.log('Login successful:', response.data);
       Swal.fire({
         icon: 'success',
         title: 'Logged in successfully!',
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          navigate('/categories');
+          window.location.reload();
+        }
       });
-
-      navigate('/categories');
     } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: error.response.data,
+      })
       console.error('Login failed:', error.response.data);
-      // Handle login failure, display an error message, etc.
     }
   };
 
@@ -78,7 +86,7 @@ const SignIn = ({ title }) => {
   return (
     <div className="col-md-4 offset-4 align-items-center ">
       <br /><br /><br></br>
-      <div className="wsk-cp-matches ">
+      <div className="wsk-cp-matches">
         <h5>Login</h5>
         <hr style={{ background: '#D3D3D3', height: '2px', border: 'none', opacity: 0.5 }} /><br />
         <form onSubmit={handleLogin}>

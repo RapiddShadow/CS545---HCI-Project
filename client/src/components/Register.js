@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 
 
-const SignUp = ({ title }) => {
+const Register = ({ title }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -52,17 +52,25 @@ const SignUp = ({ title }) => {
       });
 
       const token = response.data;
-      sessionStorage.setItem('token', token);
+      sessionStorage.setItem('token', JSON.stringify(token));
+      console.log(sessionStorage.getItem('token'))
 
       Swal.fire({
         icon: 'success',
         title: 'Registered successfully!',
+      }).then((result) => {
+        if (result.isConfirmed || result.isDismissed) {
+          navigate('/categories');
+          window.location.reload();
+        }
       });
-
-      navigate('/categories');
     } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: error.response.data,
+      })
       console.error('Registration failed:', error.response.data);
-      // Handle registration failure, display an error message, etc.
+      
     }
   };
 
@@ -71,7 +79,7 @@ const SignUp = ({ title }) => {
     <div className="col-md-6 offset-3 align-items-center ">
       <br></br>
       <div className="wsk-cp-matches" >
-      <h5>Sign Up</h5>
+      <h5>Register</h5>
         <hr style={{ background: "#D3D3D3",height: "2px", border: "none", opacity:0.5}}/>
         <br></br>
         <form onSubmit={handleSubmit}>
@@ -146,13 +154,14 @@ const SignUp = ({ title }) => {
               onChange={handleInputChange}
             />
             </div>
+            <br></br>
           </div>
 
           <div className="form-group">
             <label htmlFor="areaOfInterest" className='teamname'>Area of Interest</label>
             <div className="col-sm-6 offset-3 align-items-center ">
           <select className="form-select" id="areaOfInterest" name="areaOfInterest" value={formData.areaOfInterest} onChange={handleInputChange}>
-              <option>select Area of Interest</option>
+              <option>Select Area of Interest</option>
               <option value="pop culture">Pop Culture</option>
               <option value="geography">Geography</option>
               <option value="history">History</option>
@@ -165,7 +174,7 @@ const SignUp = ({ title }) => {
 
           <br></br>
           <button type="submit" className="round-button">
-            Sign Up
+            Register
           </button>
           <br></br><br></br>
         </form>
@@ -175,4 +184,4 @@ const SignUp = ({ title }) => {
   );
 };
 
-export default SignUp
+export default Register

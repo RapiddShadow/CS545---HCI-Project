@@ -103,28 +103,45 @@ const QuizCard = () => {
   const handleTimeout = () => {
     setTimeOut(true);
   };
-
+ 
   return (
-    <Card>
+
+    <div className="col-md-8 offset-2 align-items-center">
+      <br /><br /><br></br>
+      
+      <div className="wsk-cp-matches ">
+      
+    <Card style={{
+        background: 'navy', // Blue background
+        color: 'white', // White text
+      }}>
       <CardContent>
         <Typography variant="h4" gutterBottom>
           Quiz
         </Typography>
-        <Typography variant="body1" gutterBottom>
-          Time Left: {seconds} seconds
+        
+        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
+            Time Left: {seconds} seconds
         </Typography>
+
+        <Typography variant="body1" gutterBottom style={{ color: 'white' }}>
+            Hint 
+        </Typography>
+
+
         {currentQuestion < questionsData.length ? (
           <>
             <Typography variant="h4" gutterBottom>
               {questionsData[currentQuestion].question}
             </Typography>
             <FormControl component="fieldset">
-              <FormLabel component="legend">Options</FormLabel>
+              <FormLabel component="legend" style={{ color: 'white' }}></FormLabel>
               <RadioGroup value={selectedOption} onChange={handleOptionChange}>
                 {questionsData[currentQuestion].options.map((option, index) => (
-                  <FormControlLabel key={index} value={option} control={<Radio />} label={option} />
+                  <FormControlLabel key={index} value={option} control={<Radio style={{ color: 'white' }} />}  label={option} />
                 ))}
               </RadioGroup>
+              <br></br>
               {!isTimeOut && (
               <Button variant="contained" onClick={handleNextQuestion}>
                 Next Question
@@ -154,6 +171,7 @@ const QuizCard = () => {
         )}
       </CardContent>
     </Card>
+    </div></div>
   );
 };
 

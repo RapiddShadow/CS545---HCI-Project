@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import '../App.css';
+import { Link  } from 'react-router-dom';
+import { Button }from '@material-ui/core';
 
 const AccessForbidden = ( {title}) => {
 
@@ -20,7 +22,12 @@ const AccessForbidden = ( {title}) => {
       <div className="access-forbidden-container">
         <div className="access-forbidden-content">
           <h1>403 Access Forbidden</h1>
-          <p>Please Login!!!</p>
+          <Link to = '/'>
+          <Button size="small" style={{color: 'Black'}}>
+              Please Login!!!
+          </Button>
+          
+          </Link>
         </div>
       </div>
     );
