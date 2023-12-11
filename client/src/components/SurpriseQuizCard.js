@@ -138,7 +138,7 @@ const SurpriseQuizCard = () => {
       if (!quizSubmitted) {
         setSeconds((prevSeconds) => prevSeconds - 1);
       }
-    }, 900);
+    }, 1000);
 
     if (seconds === 0) {
       clearInterval(interval);
@@ -167,7 +167,7 @@ const SurpriseQuizCard = () => {
     setAnimationReset(true)
     setTimeout(() => {
       setAnimationReset(false)
-    }, 100);
+    }, 0);
   };
 
   const calculateScore = () => {
