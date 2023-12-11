@@ -138,7 +138,7 @@ const ScienceQuizCard = () => {
       if (!quizSubmitted) {
         setSeconds((prevSeconds) => prevSeconds - 1);
       }
-    }, 900);
+    }, 1000);
 
     if (seconds === 0) {
       clearInterval(interval);
@@ -167,7 +167,7 @@ const ScienceQuizCard = () => {
     setAnimationReset(true)
     setTimeout(() => {
       setAnimationReset(false)
-    }, 100);
+    }, 0);
   };
 
   const calculateScore = () => {
@@ -300,7 +300,7 @@ const ScienceQuizCard = () => {
             <Typography variant="h6" gutterBottom>
               Time's up!
             </Typography>
-            <Button variant="contained" size="small" onClick={handleTimeout} className="quizButton">
+              <Button variant="outlined" size="small" onClick={handleTimeout} className="quizButton">
                 Back to the Main Page
               </Button>
           </div>
