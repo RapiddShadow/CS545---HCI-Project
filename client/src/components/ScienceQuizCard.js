@@ -300,7 +300,7 @@ const ScienceQuizCard = () => {
             <Typography variant="h6" gutterBottom>
               Time's up!
             </Typography>
-            <Button variant="contained" size="small" onClick={handleTimeout} className="quizButton">
+              <Button variant="outlined" size="small" onClick={handleTimeout} className="quizButton">
                 Back to the Main Page
               </Button>
           </div>
