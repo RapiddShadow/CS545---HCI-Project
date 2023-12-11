@@ -138,7 +138,7 @@ const SportsQuizCard = () => {
       if (!quizSubmitted) {
         setSeconds((prevSeconds) => prevSeconds - 1);
       }
-    }, 900);
+    }, 1000);
 
     if (seconds === 0) {
       clearInterval(interval);
@@ -167,7 +167,7 @@ const SportsQuizCard = () => {
     setAnimationReset(true)
     setTimeout(() => {
       setAnimationReset(false)
-    }, 100);
+    }, 0);
   };
 
   const calculateScore = () => {
